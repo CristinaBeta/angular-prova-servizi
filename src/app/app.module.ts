@@ -26,6 +26,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalBootstrapComponent } from './modal-bootstrap/modal-bootstrap.component';
+import { DragDropComponent } from './drag-drop/drag-drop.component';
+import { DndDirective } from './Direttive/dnd.directive';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { ModalBootstrapComponent } from './modal-bootstrap/modal-bootstrap.compo
     DopoLoginComponent,
     ModalComponent,
     AddressFormComponent,
-    ModalBootstrapComponent  
+    ModalBootstrapComponent,
+    DragDropComponent,
+    DndDirective  
   ],
   imports: [
     BrowserModule,
