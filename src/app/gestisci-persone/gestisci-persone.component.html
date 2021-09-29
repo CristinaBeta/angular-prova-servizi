@@ -1,0 +1,81 @@
+<div class="container">
+    <h2>Sono in gestisciPersone component</h2>
+    <p>Tabella popolata attraverso una chiamata get effettuata da un servizio, su un url realizzato con json-server</p>
+    <p>Messo l'attributo routerLink in binding (parentesi quadre) a cui passo un array dove il primo valore è la parte
+        fissa, mentre il secondo valore(id) è il parametro che finisce in input al NuoviRouterComponent</p>
+    <p>La tabella viene mostrata solo se nell'url non è pesente alcun id (non è stato cliccato l'id che porta al
+        dettaglio che si trova sempre in questo template..che a sua volta compare solo se ci si clicca</p>
+    <p>Se si vuole vedere la tabella popolata con i dati presi dal db, far partire progetto springBoot "praticaAngular"
+        e poi <button (click)="listaDaSts()">Cliccare qui</button></p>
+
+    <!--Angular  <ng-container> è un elemento di raggruppamento che non interferisce con gli stili o il layout perché Angular non lo inserisce nel DOM.-->
+    <!--È quindi utile quando si desidera aggiungere condizionalmente un gruppo di elementi (ovvero utilizzare *ngIf="foo") nella propria applicazione ma non si desidera avvolgerli con un altro elemento .-->
+    <ng-container *ngIf="this.personeId === 0 || this.personeId === null || this.personeId === undefined">
+        <table class="table table-striped">
+            <!--*ngIf="this.personeId === 0 || this.personeId === null || this.personeId === undefined"-->
+            <!--era uguale fare così in questo caso-->
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Età</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let utenti of listaPersone">
+                    <td><button class="btn" (click)="dettaglioInterno(utenti.id)">{{utenti.id}}</button></td>
+                    <td>{{utenti.name}}</td>
+                    <td>{{utenti.age}}</td>
+                    <td><a [routerLink]="['/dettaglio', utenti.id]">Dettagli</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+    <!--    
+<div *ngFor="let lp of listaPersone">
+<button class="btn" (click)="prova(lp.id)">Dettaglio</button>
+</div>
+-->
+    <!--Questo metodo è equivalente a <a [routerLink]="['/dettaglio', utenti.id]">Dettagli</a>-->
+</div>
+
+
+<div class="container" *ngIf="this.personeId !== 0 && this.personeId !== null && this.personeId !== undefined">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Id: {{this.personeId}}</h3>
+            <br>
+            <h3>Nome: {{this.listaPersone[this.personeId -1].name}}</h3>
+        </div>
+        <div class="col-md-4"
+            *ngIf="this.listaPersone[this.personeId -1].info === null || this.listaPersone[this.personeId -1].info === undefined; else info">
+            <h3>Informazioni</h3>"Lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam
+            eius
+            modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
+            nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
+            autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel
+            illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? [33] At vero eos et accusamus et iusto odio
+            dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas
+            molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt
+            mollitia animi, id est laborum et dolorum fuga."
+        </div>
+        <ng-template #info>
+            <div class="col-md-4">
+                <h3>Informazioni</h3>{{this.listaPersone[this.personeId -1].info}}
+            </div>
+        </ng-template>
+        <div class="col-md-4">
+            <h3>Lorem ipsum</h3>"Lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam
+            eius
+            modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
+            nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
+            autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel
+            illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? [33] At vero eos et accusamus et iusto odio
+            dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas
+            molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt
+            mollitia animi, id est laborum et dolorum fuga."
+        </div>
+    </div>
+    <button class="btn btn-secondary" routerLink="/gestisciPersone">Torna alla lista</button>
+</div>

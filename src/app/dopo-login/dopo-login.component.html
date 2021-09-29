@@ -1,0 +1,91 @@
+<div class="container">
+    <h2>Sono nel component dopo-login </h2>
+
+    <p>E' possibile arrivare qui solo in una sessione in cui siano stati inseriti correttamente username e password.</p>
+    <p>In app-routing.module sul percorso da "filtrare" aggiungere canActivate: [AuthGuardService]
+        <br> &nbsp; AuthGuardService è il nome del mio servizio che, col suo metodo canActivate(), controlla se è
+        presente la variabile di sessione.
+    </p>
+    <hr>
+
+    <h2>ng-template</h2>
+    <p>Accanto all' *ngIf è possibile mettere anche un else.
+        <br>Il blocco else dovrà essere indicato in modo esplicito sfruttando la direttiva &lt;ng-template&gt; in cui è
+        presente la variabile di template con #nomeIndicatoNellElse.
+    </p>
+    <br>&lt;div class="luce" *ngIf="luce.stato == 'ON'; else luceoff" &gt;
+    <br><small>// codice da visualizzare nel caso di luce ON</small>
+    <br>&lt;/div &gt;
+    <br>&lt;ng-template #luceoff&gt;
+    <br><small>// codice da visualizzare nel caso di luce OFF</small>
+    <br>&lt;/ng-template&gt;
+
+    <p>prova:</p>
+    <div *ngFor="let luceSingola of luci">
+        {{luceSingola.nome}} <i *ngIf="luceSingola.stato === true; else luceoff">luce accesa</i>
+    </div>
+    <ng-template #luceoff>
+        <i>luce spenta</i>
+    </ng-template>
+
+    <hr>
+    <h2>ng-container</h2>
+    <p>Utilizzato sulla tabella in gestisci persone, &lt;ng-container&gt; è un elemento di raggruppamento che non
+        interferisce
+        con gli stili o il layout perché Angular non lo inserisce nel DOM.
+        <br>È quindi utile quando si desidera aggiungere condizionalmente un gruppo di elementi (ovvero utilizzare
+        *ngIf="foo") nella propria applicazione ma non si desidera avvolgerli con un altro elemento.
+    </p>
+    <p>Ad esempio:
+        &lt;ng-container *ngIf="true"&gt;
+        <br>&lt;h3>Title&lt;/h3&gt;
+        <br>&lt;div>Content&lt;/div&gt;
+        <br>&lt;/ng-container&gt;
+    </p>
+    <p>produce:</p>
+    <h3>Title</h3>
+    <div>Content</div>
+
+    <hr>
+    <h2>Ciclo di vita app Angular</h2>
+    <p>Il caricamento di un'app Angular, presuppone il caricamento di N componenti, ognuno dei quali ha precisi
+        "stati" durante il ciclo di vita dell'intera app.
+        <br>Il costruttore è il primo elemento che viene richiamato all'atto del caricamento del componente.
+        <br>Questo è il motivo per cui, nel caso il componente dovesse dipendere da altri elementi, si sfrutta il
+        costruttore per "iniettare" le dipendenze.
+        <br>ONCHANGES
+        Si effettua come primo evento del componente Angular e anche ogni qualvolta che cambiano i valori delle
+        propietà di input.
+        Il metodo implementato usando l’argomento SimpleChanges può essere usato per leggere il vecchio e il nuovo
+        valore di una proprietà.
+
+        <br>ONINIT
+        Questo evento dichiara che Angular è pronto alla creazione del componente.
+        Questa fase si verifica subito dopo il primo OnChanges e viene eseguita una sola volta.
+        Il che significa che tutte le dipendenza iniettate verranno risolte e tutti i membri della classe verranno
+        definiti.
+        Questo lo rende il posto perfetto per eseguire qualsiasi operazione/logica di inizializzazione del
+        componente.
+    </p>
+    <br>CLICLO DI VITA CON COMPONENTE FIGLIO
+    <ul>
+        <li>OnChanges</li>
+        <li>OnInit</li>
+        <li>DoCheck</li>
+        <li>AfterContentInit</li>
+        <li>AfterContentChecked</li>
+        <li>Componente figlio –> OnChanges</li>
+        <li>Componente figlio –> OnInit</li>
+        <li>Componente figlio –> DoCheck</li>
+        <li>Componente figlio –> AfterContentInit</li>
+        <li>Componente figlio –> AfterContentChecked</li>
+        <li>Componente figlio –> AfterViewInit</li>
+        <li>Componente figlio –> AfterViewChecked</li>
+        <li>AfterViewInit</li>
+        <li>AfterViewChecked</li>
+    </ul>
+    <hr>
+    <h2>prove angular material</h2>
+    <a routerLink="/addressForm">Address Form</a>
+
+</div>

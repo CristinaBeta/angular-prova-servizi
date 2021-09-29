@@ -1,0 +1,13 @@
+<ng-container *ngIf="display$ | async as display">
+    <section [class.open]="display === 'open'" (click)="close()">
+        <div (click)="$event.stopPropagation()">
+            <button class="close" type="button" (click)="close()">X</button>
+
+            <h1>Sono un fastidiosissimo pop-up tipo "Iscriviti alla mia newsletter!"</h1>
+        </div>
+    </section>
+</ng-container>
+
+<!--Nel contenitore, definiamo a section per coprire lo schermo quando il modale è aperto e definiamo un figlio, a div, per limitare il nostro modale a una certa dimensione.
+
+Nota che interrompo la propagazione dell'evento sul contenitore. Questo è nel caso in cui vogliamo aggiungere alcune azioni all'interno del modale, ad esempio un modulo con un pulsante di invio.-->

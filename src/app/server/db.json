@@ -1,0 +1,16 @@
+{
+    "dimensione": [
+        {
+            "nome": "piccola",
+            "dimensione": "200"
+        },
+        {
+            "nome": "media",
+            "dimensione": "500"
+        },
+        {
+            "nome": "grande",
+            "dimensione": "800"
+        }
+    ]
+}
