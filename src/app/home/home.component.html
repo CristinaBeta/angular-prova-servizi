@@ -1,0 +1,47 @@
+<div class="container">
+    <hr>
+    <div *ngIf="current !== undefined">
+    <app-gmap [dimensione]="current.dimensione"></app-gmap>
+    </div>
+    <app-tab-bar [items]="dimensione" (evento)="updateDimensione($event)"></app-tab-bar>
+    <hr>
+    <h2>Sono nel component principale</h2>
+    <ul class="list-group">
+      <li class="list-group-item">
+        Richiamo i 2 component con le loro proprietà (Input, parentesi quadrate)
+      </li>
+      <li class="list-group-item">
+        Quando avviene l'evento (output, parentesi tonde) viene lanciato il metodo updateDimensione che ha come parametro
+        $event, che contiene i paramentri inviati dall'evento.
+      </li>
+      <li class="list-group-item">
+        Aggiunta cartella server con dentro un mio json con l'array di oggetti..installato tool json-server che tramite
+        watch crea degli endpoint per ognuno dei json caricati
+      </li>
+      <li class="list-group-item">
+        Iniettato il servizio Http nel costruttore
+      </li>
+      <li class="list-group-item">
+        A questo punto faccio una chiamata get sull'url creato
+      </li>
+      <li class="list-group-item">
+        Questo mi restituisce un Observable, una sorta di stream di informazioni che contiene dati sincroni e asincroni
+        che si può sottoscrivere tramite il metodo subscribe e ricevere i dati non appena sono emessi.
+      </li>
+      <li class="list-group-item">
+        Questi dati devono essere convertiti dal json in oggetti che andranno a popolare il mio array dimensione
+      </li>
+      <li class="list-group-item">
+        A questo punto sposto la chiamata in un servizio -> una classe indipendente dalla View che viene definita per
+        svolgere un compito ben preciso
+      </li>
+    </ul>
+
+    <h3>Modal</h3>
+    <p>Il modal è un pop-up; ha 2 stati: chiuso o aperto. 
+      <br>Esempio di modale che non usa librerie, ma è composto da un servizio per impostare lo stato aperto/chiuso:</p>
+    <button class="btn btn-secondary" (click)="open()">
+      Open
+    </button>
+    
+  </div>

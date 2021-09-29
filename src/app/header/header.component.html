@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/prova">Prova</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/gestisciPersone">Persone</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/modal">Modal Bootstrap</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+      <li class="nav-item" *ngIf="storageService !== undefined">
+        <a class="nav-link"
+          href="https://medium.com/@nixonaugustine5/localstorage-and-sessionstorage-in-angular-app-65cda19283a0#:~:text=Both%20localStorage%20and%20sessionStorage%20are,the%20security%20threat%20cookies%20present.">{{storageService.getVarSessione('pulsante')}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>

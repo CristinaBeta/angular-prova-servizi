@@ -1,0 +1,20 @@
+<div class="container">
+<h2>Angular 11 Bootstrap Modal Popup Esempio</h2>
+   
+<button class="btn btn-outline-secondary btn-sm" (click)="open(mymodal)">Apri Modal</button>
+   
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Questo è il corpo del modal..potrebbe esserci un form qui ad esempio
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark btn-sm" (click)="modal.close('Save click')">Ok</button>
+  </div>
+</ng-template>
+</div>

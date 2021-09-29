@@ -1,0 +1,68 @@
+<div class="container">
+    <h2>Sono nel component prova</h2>
+    <a routerLink="">link</a>
+    <p>All'interno dell'applicazione è meglio usare un routerLink al posto di href perchè non ricarica tutta la pagina,
+        ma solo il componente. </p>
+    <br>
+    Un oggetto Route contiene diverse proprietà, le principali sono:
+    <ul>
+        <li>path: specifica il percorso che stiamo configurando;</li>
+        <li>component: specifica il component a cui path si riferisce;</li>
+    </ul>
+    <ul><li class="list-group-item">
+        Bottone che al click salva una variabile di sessione con chiave "pulsante"; questa variabile viene aggiunta nell'header: 
+        <button type="button" class="btn btn-outline-secondary btn-sm" (click)=salvaVarInSessione()>Salva</button>
+    </li></ul>
+    <hr>
+    <h3>Prime prove - Riepilogo</h3>
+    <ul class="list-group">
+        <li class="list-group-item">
+            Ciao + variabile (interpolazione): Ciao <label>{{nome}}</label>
+            <br>
+            Dopo 2 secondi il costruttore cambia il valore della variabile
+        </li>
+        <li class="list-group-item">
+            Variabile + variabile: {{var1 + var2}}
+        </li>
+        <li class="list-group-item">
+            Bottone che al click cambia il valore della prima variabile: <button class="btn btn-outline-secondary btn-sm"
+                (click)=sostituisciNome()>Pippo</button><button class="btn btn-outline-secondary btn-sm"
+                (click)="nome = 'Pluto'">Pluto</button>
+        </li>
+    </ul>
+    <p>Quello che scrivo qui lo stampa subito dopo grazie al data-binding a 2vie (al cambiamento dell'input cambia anche
+        il component e viceversa)</p>
+    <div class="col-xs-12">
+        <div class="col-xs-4">
+            <input type="text" class="form-control" (input)="getText($event)">
+            <p>{{stampa}}</p>
+        </div>
+    </div>
+    <p>Un altro modo di fare il data-binding a 2vie è importare FormsModule nel module.ts</p>
+    <div class="col-xs-12">
+        <div class="col-xs-4">
+            <input type="text" class="form-control" [(ngModel)]="testo2">
+            <p>{{testo2}}</p>
+        </div>
+    </div>
+    <p>Un altro modo per pendere un valore all'interno di un input è assegnargli una reference (vedere con f12)</p>
+    <div class="col-xs-12">
+        <div class="col-xs-4">
+            <input type="text" class="form-control" #input>
+            <button class="button9" (click)="getData(input)">Clicca</button>
+        </div>
+    </div>
+    <p>
+        Data binding collegato alle direttive: il dom carica solo se la condizione è rispettata
+    </p>
+    <small>se scrivi paperino, ti dice "Il tuo nome è", altrimenti nulla</small>
+    <div class="col-xs-12">
+        <div class="col-xs-4">
+            <input type="text" class="form-control" [(ngModel)]="soprannome">
+            <p *ngIf="soprannome === 'paperino'">Il tuo nome è {{soprannome}}</p>
+        </div>
+    </div>
+    <hr>
+    <h2>Prove angular material</h2>
+    <mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+</div>
