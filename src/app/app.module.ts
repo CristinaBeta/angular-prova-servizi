@@ -28,6 +28,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalBootstrapComponent } from './modal-bootstrap/modal-bootstrap.component';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { DndDirective } from './Direttive/dnd.directive';
+import { UploadComponent } from './upload/upload.component';
+import { ColorDirective } from './Direttive/color.directive';
+import { DragdropDirective } from './Direttive/dragdrop.directive';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import { DndDirective } from './Direttive/dnd.directive';
     AddressFormComponent,
     ModalBootstrapComponent,
     DragDropComponent,
-    DndDirective  
+    DndDirective,
+    UploadComponent,
+    ColorDirective,
+    DragdropDirective  
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,18 @@
+<div class="container">
+
+    <h1 colorDirective color="blue"> Prova direttiva colore</h1>
+    <h1 colorDirective color="red"> Prova direttiva colore</h1>
+
+    <div class="uploadfilecontainer" (click)="fileInput.click()" appDragdrop (onFileDropped)="onDrag($event)">
+        <input hidden type="file" #fileInput (change)="onDrag($event.target.files)">                               <!--questo imput è nascosto perchè ho messo il click che lo chiama sul div-->
+    </div>               
+    <!--il file è solo uno, ma potrebbe essere un array se togliessi il controllo-->                                                                                          <!--event in questo caso è il seleziono tramite la finestra di windows-->
+    <div class="files-list" *ngFor="let f of toUpload">
+        <p>{{f.name}}</p>
+        <button class="delete-file" (click)="toUpload.splice(toUpload.indexOf(f), 1)">          <!--rimuovi questo elemento dall'array-->
+            <img src="assets/img/delete.png">
+        </button>
+    </div>
+    <button class="btn btn-secondary" (click)="send()" [disabled]="toUpload.length==0">Upload</button>
+
+</div>

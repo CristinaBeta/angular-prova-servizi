@@ -11,6 +11,7 @@ import { DopoLoginComponent } from './dopo-login/dopo-login.component';
 import { AddressFormComponent } from './address-form/address-form.component';
 import { ModalBootstrapComponent } from './modal-bootstrap/modal-bootstrap.component';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
+import { UploadComponent } from './upload/upload.component';
 
 const routes: Routes = [
 
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path:'dopoLogin', component: DopoLoginComponent, canActivate: [AuthGuardService]},
   {path:'addressForm', component: AddressFormComponent, canActivate: [AuthGuardService]},
   {path:'modal' , component: ModalBootstrapComponent},
-  {path:'dnd' , component: DragDropComponent}
+  {path:'dnd' , component: DragDropComponent},
+  {path:'upload' , component: UploadComponent}
 ];
 
 @NgModule({
