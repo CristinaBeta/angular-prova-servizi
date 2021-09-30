@@ -9,7 +9,7 @@ import {TranslateService} from '@ngx-translate/core';
 export class TraduzioneComponent implements OnInit {
 
   constructor(private translate: TranslateService){
-    translate.setDefaultLang('en');                     //cambiare con ita?
+    translate.setDefaultLang('it');
   }
 
   ngOnInit(): void {

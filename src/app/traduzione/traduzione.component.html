@@ -9,20 +9,30 @@
     translation directive — id as a child <element translate>id</element>
 
 -->
-<div>
-    <h1>{{ 'demo.title' | translate }}</h1>
+<div class="container">
+  <h1>{{ 'demo.title' | translate }}</h1>
 
-    <!-- translation: translation pipe -->
-    <p>{{ 'demo.text' | translate }}</p>
+  <!-- translation: translation pipe -->
+  <p>{{ 'demo.text' | translate }}</p>
 
-    <!-- translation: directive (key as attribute)-->
-    <p [translate]="'demo.text'"></p>
+  <!-- translation: directive (key as attribute)-->
+  <p [translate]="'demo.text'"></p>
 
-    <!-- translation: directive (key as content of element) -->
-    <p translate>demo.text</p>
+  <!-- translation: directive (key as content of element) -->
+  <p translate>demo.text</p>
 
-    <button (click)="useLanguage('en')">en</button>
-    <button (click)="useLanguage('de')">de</button>
+
+
+  <button type="button" class="btn btn-outline-success btn-sm" (click)="useLanguage('en')">en</button>
+  <button type="button" class="btn btn-outline-info btn-sm" (click)="useLanguage('de')">de</button>
+  <button type="button" class="btn btn-outline-danger btn-sm" (click)="useLanguage('it')">it</button>
+
+  <br>
+  <br>
+  <br>
+  <p>//Prova di parametro in traduzione
+    <br>
+    {{ 'demo.greeting' | translate:{'name':'Pippo'} }}</p>
 </div>
 
 <!--
