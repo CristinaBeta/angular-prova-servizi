@@ -26,9 +26,9 @@ export class UploadComponent implements OnInit {
     console.log("start")
   }
 
-  onDrag(event: string | any[]) {                                                      //event è la lista di file, un array di oggetti
+  onDrag(event: File[]) {                                                      //event è la lista di file, un array di oggetti
     if (event.length > 1) {
-      this.error = "Non è posssibile caricare più di un file.";         //condizioni: solo un file, di tipo pdf, (di max 128mb)
+      this.error = "Non è possibile caricare più di un file.";         //condizioni: solo un file, di tipo pdf, (di max 128mb)
     } else {
       let fileName = event[0].name;                                     //es. "pippo.jpg"
       let split = fileName.split(".");                                  //separa pippo da jpg
@@ -51,9 +51,9 @@ export class UploadComponent implements OnInit {
     formData.append('file', this.toUpload[0], this.toUpload[0].name);       //si chiama file, prendi il mio file, nome in stringa del file
     formData.append('request', "UPLOAD");                                   //stringa e valore "upload" così posso controllare la request
     this.error = null;
-    this.http.post('http://', formData, {     //faccio una post su un server. upload.php è il codice che permette di salvare 
-      /*reportProgress: true,                                                         //fammi vedere la percentuale
-      observe: 'events'*/
+    this.http.post('http://', formData, {     //faccio una post su un server. qui c'è il codice che permette di salvare 
+      reportProgress: true,                                                         //fammi vedere la percentuale
+      observe: 'events'
     })
       /*.subscribe(events => {
         if (events.type == HttpEventType.UploadProgress) {
