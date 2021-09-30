@@ -1,0 +1,47 @@
+<!--
+    title and text are identifiers ngx-translate uses to find the translation strings. 
+    Now edit the html and replace the static texts with references to the messages in the en.json file.
+
+    You have 3 choices when it comes to adding translations:
+
+    translation pipe — {{'id' | translate}}
+    translation directive — id as attribute value<element [translate]="'id'"></element>
+    translation directive — id as a child <element translate>id</element>
+
+-->
+<div>
+    <h1>{{ 'demo.title' | translate }}</h1>
+
+    <!-- translation: translation pipe -->
+    <p>{{ 'demo.text' | translate }}</p>
+
+    <!-- translation: directive (key as attribute)-->
+    <p [translate]="'demo.text'"></p>
+
+    <!-- translation: directive (key as content of element) -->
+    <p translate>demo.text</p>
+
+    <button (click)="useLanguage('en')">en</button>
+    <button (click)="useLanguage('de')">de</button>
+</div>
+
+<!--
+Translations with parameters
+ngx-translate also supports parameters in translations. They are passed as an object, the keys can be used in the translation strings.-->
+
+<!-- translation with parameters: translation pipe -->
+<!--<p>{{ 'demo.greeting' | translate:{'name':'Andreas'} }}</p>-->
+
+<!-- translation: directive (key as attribute) -->
+<!--<p [translate]="'demo.greeting'" [translateParams]="{name: 'Andreas'}"></p>-->
+
+<!-- translation: directive (key as content of element)-->
+<!--<p translate [translateParams]="{name: 'Andreas'}">demo.greeting</p>-->
+
+<!--And the extended translations file:
+  {
+  "demo": {
+    …
+    "greeting": "Hello {{name}}!"
+  }
+}-->

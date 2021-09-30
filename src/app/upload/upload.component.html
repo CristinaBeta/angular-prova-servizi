@@ -1,8 +1,5 @@
 <div class="container">
 
-    <h1 colorDirective color="blue"> Prova direttiva colore</h1>
-    <h1 colorDirective color="red"> Prova direttiva colore</h1>
-
     <h3>Caricamento al {{progress}}%</h3>
     <p style="color: red">{{error}}</p>
     <div class="uploadfilecontainer" appDragdrop (onFileDropped)=" onDrag($event)">
@@ -23,5 +20,12 @@
         </button>
     </div>
     <button class="btn btn-secondary" (click)="send()" [disabled]="toUpload.length==0">Upload</button>
+
+    <br>
+    <br>
+    <br>
+    <div class="basso">Prima prova drag&drop con shake
+        <a routerLink="/dnd">Drag&Drop</a>
+    </div>
 
 </div>

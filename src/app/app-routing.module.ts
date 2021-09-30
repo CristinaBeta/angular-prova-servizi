@@ -12,6 +12,7 @@ import { AddressFormComponent } from './address-form/address-form.component';
 import { ModalBootstrapComponent } from './modal-bootstrap/modal-bootstrap.component';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { UploadComponent } from './upload/upload.component';
+import { TraduzioneComponent } from './traduzione/traduzione.component';
 
 const routes: Routes = [
 
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path:'addressForm', component: AddressFormComponent, canActivate: [AuthGuardService]},
   {path:'modal' , component: ModalBootstrapComponent},
   {path:'dnd' , component: DragDropComponent},
-  {path:'upload' , component: UploadComponent}
+  {path:'upload' , component: UploadComponent},
+  {path:'traduzione' , component: TraduzioneComponent}
 ];
 
 @NgModule({

@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TabBarComponent } from './tab-bar/tab-bar.component';
 import { GmapComponent } from './gmap/gmap.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { ProvaComponent } from './prova/prova.component';
 import { HeaderComponent } from './header/header.component';
@@ -31,6 +31,9 @@ import { DndDirective } from './Direttive/dnd.directive';
 import { UploadComponent } from './upload/upload.component';
 import { ColorDirective } from './Direttive/color.directive';
 import { DragdropDirective } from './Direttive/dragdrop.directive';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TraduzioneComponent } from './traduzione/traduzione.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,8 @@ import { DragdropDirective } from './Direttive/dragdrop.directive';
     DndDirective,
     UploadComponent,
     ColorDirective,
-    DragdropDirective  
+    DragdropDirective,
+    TraduzioneComponent  
   ],
   imports: [
     BrowserModule,
@@ -76,9 +80,22 @@ import { DragdropDirective } from './Direttive/dragdrop.directive';
       MatRadioModule,
       MatCardModule,
       ReactiveFormsModule,
-      NgbModule
+      NgbModule,
+      TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        }
+    })
+      
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}
