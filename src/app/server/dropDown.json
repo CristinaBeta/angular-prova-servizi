@@ -1,0 +1,13 @@
+{
+    "dropdown": [
+        {
+            "nome": "elemento1"
+        },
+        {
+            "nome": "elemento2"
+        },
+        {
+            "nome": "elemento3"
+        }
+    ]
+}

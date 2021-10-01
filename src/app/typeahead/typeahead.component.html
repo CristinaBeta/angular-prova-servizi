@@ -1,0 +1,17 @@
+<h2>Esempio di typeahead senza uso di librerie</h2>
+<div class="search">
+  <input #filterInput type="text" maxlength="20" (keyup)='searchQueryOnDataSource($event)' />
+  <span id="search-icon"><img src='assets/img/icon_search.png'></span>
+  <span id="search-clear"><img (click)="closeSearch()" src='assets/img/icon_close.png'></span>
+  <small>da rivedere</small>
+
+  <div class="autocomplete">
+    <ul #filterList class="sub-list" *ngIf="resultDataList">
+      <li *ngFor="let result of resultDataList" (click)="selectedResult(result)">
+        <img *ngIf="resultDataList.length !== 1" [src]='result?.flag' width="35" height="20">
+        <div *ngIf="resultDataList.length > 1" [innerHTML]='result?.name'></div>
+        <span *ngIf="resultDataList.length === 1" [innerHTML]='result?.name'></span>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -13,6 +13,7 @@ import { ModalBootstrapComponent } from './modal-bootstrap/modal-bootstrap.compo
 import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { UploadComponent } from './upload/upload.component';
 import { TraduzioneComponent } from './traduzione/traduzione.component';
+import { DropDownComponent } from './drop-down/drop-down.component';
 
 const routes: Routes = [
 
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path:'modal' , component: ModalBootstrapComponent},
   {path:'dnd' , component: DragDropComponent},
   {path:'upload' , component: UploadComponent},
-  {path:'traduzione' , component: TraduzioneComponent}
+  {path:'traduzione' , component: TraduzioneComponent},
+  {path:'dropdown' , component: DropDownComponent}
 ];
 
 @NgModule({

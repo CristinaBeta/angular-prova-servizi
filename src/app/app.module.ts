@@ -34,6 +34,10 @@ import { DragdropDirective } from './Direttive/dragdrop.directive';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { TraduzioneComponent } from './traduzione/traduzione.component';
+import { DropDownComponent } from './drop-down/drop-down.component';
+import { TypeaheadComponent } from './typeahead/typeahead.component';
+import { NgxTypeaheadModule } from 'ngx-typeahead';
+import { TypeaheadSearchComponent } from './typeahead-search/typeahead-search.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +60,10 @@ import { TraduzioneComponent } from './traduzione/traduzione.component';
     UploadComponent,
     ColorDirective,
     DragdropDirective,
-    TraduzioneComponent  
+    TraduzioneComponent,
+    DropDownComponent,
+    TypeaheadComponent,
+    TypeaheadSearchComponent   
   ],
   imports: [
     BrowserModule,
@@ -87,8 +94,8 @@ import { TraduzioneComponent } from './traduzione/traduzione.component';
             useFactory: HttpLoaderFactory,
             deps: [HttpClient]
         }
-    })
-      
+    }),
+    NgxTypeaheadModule      
   ],
   providers: [],
   bootstrap: [AppComponent]

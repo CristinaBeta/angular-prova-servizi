@@ -1,0 +1,21 @@
+<div class="container">
+<p>Avrei potuto mettere la dropDown e il typeahead nell'header</p>
+<div class="row">
+    <div class="col">
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Esempio dropdown</button>
+            <ng-container *ngIf="this.listaElementi !== null">
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" *ngFor="let le of listaElementi">
+                <button ngbDropdownItem (click)="mostraInfo()">{{le.nome}}</button>
+            </div>
+        </ng-container>
+        </div>
+    </div>
+</div>
+<!--NgxTypeahead-->
+<hr>
+<app-typeahead-search></app-typeahead-search>
+<!--typeahead senza uso di librerie-->
+<hr>
+<app-typeahead></app-typeahead>
+</div>

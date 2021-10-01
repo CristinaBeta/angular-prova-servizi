@@ -1,0 +1,54 @@
+<p>NgxTypeahead package is a stand-alone Autocomplete module which is free from any dependencies. </p>
+
+<h2>Semplice Typeahead con lista locale</h2>
+<input [value]="search1" ngxTypeahead [taList]="myLocalList" (taSelected)="selectedStatic($event)">
+
+<br>
+<h2>Typeahead con lista custom</h2>
+<input [value]="search2" ngxTypeahead [taList]="myLocalDataList2" [taItemTpl]="myTemp"
+    (taSelected)="selectedTempStatic($event)">
+
+<ng-template #myTemp let-item>
+    <div class="item-name">
+        {{item.result.name}}
+    </div>
+    <div class="item-desc">
+        {{item.result.description}}
+    </div>
+</ng-template>
+
+<br>
+<h2>Typeahead con richiesta al server per suggerimenti</h2>
+<input [value]="search4" ngxTypeahead [taList]="myDataList" [taItemTpl]="risp"
+    (taSelected)="selectedTempStatic($event)">
+
+<ng-template #risp let-item>
+    <div class="item-name">
+        {{item.result.name}}
+    </div>
+</ng-template>
+
+
+<!--[taList]: Items data list which will populate when a user types.
+    (taSelected): Emit event when an item from suggestions is selected.
+    [taItemTpl]: Takes the template variable defined on <ng-template></ng-template>
+    [taUrl]: URL of remote API url/ end-point to get results.
+    [taParams]: Parameters which will be sent with the above API request.
+-->
+
+<br>
+<h2>Typeahead con richiesta al server per suggerimenti</h2>
+<input [value]="search3" ngxTypeahead 
+[taUrl]="this.url" 
+[taParams]="params" 
+[taItemTpl]="myAPIrespTemp"
+(taSelected)="selectedAPITempStatic($event)">
+
+<ng-template #myAPIrespTemp let-item>
+    <div class="item-name">
+        {{item.result.name}}
+    </div>
+    <div class="item-desc">
+        {{item.result.description}}
+    </div>
+</ng-template><small>da rivedere</small>
