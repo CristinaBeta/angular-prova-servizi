@@ -1,96 +1,42 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgbTypeahead} from '@ng-bootstrap/ng-bootstrap';
+import {Observable, Subject, merge, OperatorFunction} from 'rxjs';
+import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
+
+const states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado',
+  'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia',
+  'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine',
+  'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana',
+  'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+  'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico', 'Rhode Island',
+  'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Islands', 'Virginia',
+  'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
 @Component({
   selector: 'app-typeahead',
   templateUrl: './typeahead.component.html',
-  styleUrls: ['./typeahead.component.scss']
+  styleUrls: ['./typeahead.component.css']
 })
 export class TypeaheadComponent implements OnInit {
-  @Input() searchDataSource!: Array<any>;
-  @Output() userSelectedResult: EventEmitter<object>;
-  @Output() closeSearchEvent: EventEmitter<boolean>;
+  model: any;
 
-  @ViewChild('filterInput') public userInput!: ElementRef;
-  @ViewChild('filterList') public filterList!: ElementRef;
-  resultDataList!: Array<any>;
+  @ViewChild('instance', { static: true }) instance!: NgbTypeahead;
+  focus$ = new Subject<string>();
+  click$ = new Subject<string>();
 
-  constructor() {
-    this.userSelectedResult = new EventEmitter<object>();
-    this.closeSearchEvent = new EventEmitter<boolean>();
+  constructor(){}
+  
+  ngOnInit() {}
+
+  search: OperatorFunction<string, readonly string[]> = (text$: Observable<string>) => {
+    const debouncedText$ = text$.pipe(debounceTime(200), distinctUntilChanged());
+    const clicksWithClosedPopup$ = this.click$.pipe(filter(() => !this.instance.isPopupOpen()));
+    const inputFocus$ = this.focus$;
+
+    return merge(debouncedText$, inputFocus$, clicksWithClosedPopup$).pipe(
+      map(term => (term === '' ? states
+        : states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1)).slice(0, 10))       //mostra solo 10 risultati
+    );
   }
 
-  ngOnInit() {
-    setTimeout(() => {
-      const userInputHTMLElement: HTMLElement = this.userInput.nativeElement;
-      userInputHTMLElement.focus();
-    });
-  }
-
-  searchQueryOnDataSource($event: any): void {
-    if ($event.target.value.length >= 2) {
-      this.resultDataList = [];
-
-      this.enableSearch().then((dataSource) => {
-        this.doQuerySearch(dataSource, $event.target.value);
-      });
-    } else {
-      setTimeout(() => {
-        const filterListHTMLElement: HTMLElement = this.filterList.nativeElement;
-        filterListHTMLElement.style.backgroundColor = 'transparent';
-      });
-
-      this.resultDataList = [];
-    }
-  }
-
-  enableSearch(): Promise<any> {
-    return new Promise((resolve) => {
-      resolve(this.searchDataSource.map(item => Object.assign({}, item)));
-    });
-  }
-
-  private doQuerySearch(dataArray: Array<any>, queryString: string): void {
-    setTimeout(() => {
-      const filterListHTMLElement: HTMLElement = this.filterList.nativeElement;
-      filterListHTMLElement.style.backgroundColor = '#fff';
-    });
-
-    for (const element of dataArray) {
-      const feature = element;
-      if (feature.name.toLowerCase().search(queryString.toLowerCase()) !== -1) {
-        this.resultDataList.push(feature);
-      }
-    }
-
-    if (this.resultDataList.length === 0) {
-      const feature = {
-        name: 'No results found for ' + queryString + '. Please enter a different search criteria.'
-      };
-      this.resultDataList.push(feature);
-    }
-
-    for (const element of this.resultDataList) {
-      const feature = element;
-      const regex = new RegExp('(' + queryString + ')', 'gi');
-      let updatedText: string;
-      if (this.resultDataList.length > 0) {
-        updatedText = feature.name.replace(regex, '<strong>' + queryString + '</strong>');
-      }
-      feature.originalText = feature.name;
-      //feature.name = updatedText;
-    }
-  }
-
-  selectedResult(result: any): void {
-    this.userInput.nativeElement.value = result.originalText;
-    this.userSelectedResult.emit({
-      target: (result || null)
-    });
-
-    this.resultDataList = [];
-  }
-
-  closeSearch(): void {
-    this.closeSearchEvent.emit(true);
-  }
 }
