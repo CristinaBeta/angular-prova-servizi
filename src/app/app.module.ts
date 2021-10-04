@@ -38,6 +38,7 @@ import { DropDownComponent } from './drop-down/drop-down.component';
 import { TypeaheadComponent } from './typeahead/typeahead.component';
 import { NgxTypeaheadModule } from 'ngx-typeahead';
 import { TypeaheadSearchComponent } from './typeahead-search/typeahead-search.component';
+import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { TypeaheadSearchComponent } from './typeahead-search/typeahead-search.co
     TraduzioneComponent,
     DropDownComponent,
     TypeaheadComponent,
-    TypeaheadSearchComponent   
+    TypeaheadSearchComponent,
+    ProfileEditorComponent   
   ],
   imports: [
     BrowserModule,

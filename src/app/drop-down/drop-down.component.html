@@ -1,21 +1,34 @@
 <div class="container">
-<p>Avrei potuto mettere la dropDown e il typeahead nell'header</p>
-<div class="row">
-    <div class="col">
-        <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Esempio dropdown</button>
-            <ng-container *ngIf="this.listaElementi !== null">
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" *ngFor="let le of listaElementi">
-                <button ngbDropdownItem (click)="mostraInfo()">{{le.nome}}</button>
+    <p>Avrei potuto mettere la dropDown e il typeahead nell'header</p>
+    <h2>DropDown con elementi di json-server</h2>
+    <div class="row">
+        <div class="col">
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Lista elementi</button>
+                <ng-container *ngIf="this.listaElementi !== null">
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" *ngFor="let le of listaElementi">
+                        <button ngbDropdownItem (click)="mostraInfo()">{{le.nome}}</button>
+                    </div>
+                </ng-container>
             </div>
-        </ng-container>
         </div>
     </div>
-</div>
-<!--NgxTypeahead-->
-<hr>
-<app-typeahead-search></app-typeahead-search>
-<!--typeahead NgbTypeahead-->
-<hr>
-<app-typeahead></app-typeahead>
+
+    <h2>DropDown con FormControl</h2>
+    <p [ngClass]="{'big' : size == 'big', 'small' : size == 'small'}">
+        Frase a cui cambio lo stile
+        <select (change)="hello()" [formControl]="selectField">
+            <option value="1">Grande</option>
+            <option value="2">Piccolo</option>
+            <option value="3">Reset</option>
+        </select>
+    </p>
+
+
+    <hr>
+    <!--NgxTypeahead-->
+    <app-typeahead-search></app-typeahead-search>
+    <!--typeahead NgbTypeahead-->
+    <hr>
+    <app-typeahead></app-typeahead>
 </div>
