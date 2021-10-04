@@ -15,6 +15,7 @@ import { UploadComponent } from './upload/upload.component';
 import { TraduzioneComponent } from './traduzione/traduzione.component';
 import { DropDownComponent } from './drop-down/drop-down.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
 
@@ -34,7 +35,8 @@ const routes: Routes = [
   {path:'upload' , component: UploadComponent},
   {path:'traduzione' , component: TraduzioneComponent},
   {path:'dropdown' , component: DropDownComponent},
-  {path:'form' , component: ProfileEditorComponent}
+  {path:'form' , component: ProfileEditorComponent},
+  {path:'sidebar' , component: SidebarComponent},
 ];
 
 @NgModule({

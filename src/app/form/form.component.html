@@ -1,0 +1,19 @@
+<h2>Component form</h2>
+<p>Form con l'utilizzo di form builder</p>
+<div class="formContainer">
+    <form (ngSubmit)="send()" [formGroup]="form"> <!--attribuisce a questo form html il form group e si aspetta per ogni campo il [FormControl]= che nelle nuove versioni per i gruppi è formControlName-->
+        <input class="form-control" type="text" (input)="checkUser()" placeholder="Username, min lunghezza=6" formControlName="user"> 
+        <input class="form-control"type="text" placeholder="Nome" formControlName="nome">
+        <input class="form-control"type="text" placeholder="Cognome" formControlName="cognome">       
+        <input class="form-control"type="email" placeholder="E-Mail" formControlName="email">
+        <input class="form-control" type="date" placeholder="Data di nascita" formControlName="date">
+        <input type="submit" class="btn btn-outline-info btn-sm" value="Invia">
+    </form>
+    <br>
+    <p>Valori del form in json: {{ form.value | json }}</p>  <!--JsonPipe converts a value into its JSON-format representation. Useful for debugging. {{ value_expression | json }} -->
+</div>
+
+<!--ngSubmit chiama la funzione send-->
+<!--(input)="checkUser()"  ogni volta che ci scrivo dentro chiamerà il metodo checkUser che controllerà se la lunghezza è corretta-->
+
+<!-- la visualizzazione di questo component è legata a profile-editor -->

@@ -1,6 +1,6 @@
 export interface Utenti {
 
-    id:number;
+    id: number;
     age: number;
     name: string;
     info: string;

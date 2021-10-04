@@ -1,0 +1,56 @@
+.sidebar{
+	float: right;
+	width: 15%;
+	padding-top: 2%;
+}
+
+.sidebar h3{
+	text-transform: small-caps;
+	color: black;
+}
+.sidebar ol{
+	text-align: left;
+	color: #808080;
+}
+.sidebar li:hover{
+	color: #801a00;
+}
+
+.sidebar ul{
+	counter-reset: section;
+	list-style-type: none;
+}
+
+.sidebar ul li::before{
+	counter-increment: section;
+	content: counters(section,".") ">>";
+}
+
+.sidebar ul li{
+	text-align: left;
+}
+
+input[type="text"]{
+	background-color: rgba(0,0,0,0);
+	outline: none;
+	display: inline-block;
+	font-size: 15px;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+body{
+	background-color: #e6e6e6;
+	color: #d11313;
+	margin: 0;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.mainpage{
+    width: 79%;
+	color: black;
+	padding: 3%;
+	text-align: left;
+	border-right: 2px solid black;
+}

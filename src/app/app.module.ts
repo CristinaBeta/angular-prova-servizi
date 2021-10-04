@@ -39,6 +39,8 @@ import { TypeaheadComponent } from './typeahead/typeahead.component';
 import { NgxTypeaheadModule } from 'ngx-typeahead';
 import { TypeaheadSearchComponent } from './typeahead-search/typeahead-search.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
+import { FormComponent } from './form/form.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { ProfileEditorComponent } from './profile-editor/profile-editor.componen
     DropDownComponent,
     TypeaheadComponent,
     TypeaheadSearchComponent,
-    ProfileEditorComponent   
+    ProfileEditorComponent,
+    FormComponent,
+    SidebarComponent   
   ],
   imports: [
     BrowserModule,

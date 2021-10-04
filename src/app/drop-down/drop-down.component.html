@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <h2>DropDown con FormControl</h2>
+    <h2>DropDown con FormControl</h2>   <!--questo è un reactive form-->
     <p [ngClass]="{'big' : size == 'big', 'small' : size == 'small'}">
         Frase a cui cambio lo stile
         <select (change)="hello()" [formControl]="selectField">
