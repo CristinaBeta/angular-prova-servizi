@@ -9,6 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
 
   loading: boolean = false;
+      id: number = 13;
+      nome: string = "tredici"
+      eta: number = 22;
+      informazioni: string = "tredici";
+      user: string = "tredici";
+      password: string = "tredici";
 
   constructor(private http: HttpClient) { }
 
@@ -37,18 +43,27 @@ export class SidebarComponent implements OnInit {
   inserisciUtente(id: number, nome: string, eta: number, informazioni: string, user: string, password: string) {
     this.loading = true;
     this.http.post('http://localhost:8091/inserisciUtente/', {
-      /*'id': id,
-      'nome': nome,
-      'eta': eta,
-      'informazioni': informazioni,
-      'user':user,
-      'password':password*/
       id: id,
       nome: nome,
       eta: eta,
       informazioni: informazioni,
       user: user,
       password: password
+    }).subscribe(res => {
+      console.log(res);
+      this.loading = false;
+    })
+  }
+
+  inserisciUtente2() {
+    this.loading = true;
+    this.http.post('http://localhost:8091/inserisciUtente/', {
+      id: this.id,
+      nome: this.nome,
+      eta: this.eta,
+      informazioni: this.informazioni,
+      user: this.user,
+      password: this.password
     }).subscribe(res => {
       console.log(res);
       this.loading = false;
