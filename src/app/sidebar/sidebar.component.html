@@ -7,24 +7,63 @@
 
 <div class="mainpage">
     <p>Ripasso di una chiamata http</p>
-    <p>Un <i>Observable</i> è una tipologia di oggetto che fa la chiamata e attende la risposta, avvia un'azione in maniera asincrona e attende</p>
-    <p>Una <i>callback</i> è, in genere, una funzione, o un "blocco di codice" che viene passata come parametro ad un'altra funzione. 
-        In particolare, quando ci si riferisce alla callback richiamata da una funzione, 
-        la callback viene passata come argomento ad un parametro della funzione chiamante. 
-        In questo modo la chiamante può realizzare un compito specifico (quello svolto dalla callback) che non è, molto spesso, noto al momento della scrittura del codice.</p>
+    <p>Un <i>Observable</i> è una tipologia di oggetto che fa la chiamata e attende la risposta, avvia un'azione in
+        maniera asincrona e attende</p>
+    <p>Una <i>callback</i> è, in genere, una funzione, o un "blocco di codice" che viene passata come parametro ad
+        un'altra funzione.
+        In particolare, quando ci si riferisce alla callback richiamata da una funzione,
+        la callback viene passata come argomento ad un parametro della funzione chiamante.
+        In questo modo la chiamante può realizzare un compito specifico (quello svolto dalla callback) che non è, molto
+        spesso, noto al momento della scrittura del codice.</p>
     <ul>
         <li>apro la pagina web</li>
         <li>avvio il mio componente, quindi viene chiamato ngOnInit che chiama il mio metodo</li>
         <li>il metodo() fa la richiesta http e ritorna come risultato un Observable</li>
         <li>l'observable è in attesa della risposta http</li>
         <li>sottoscrivo una funzione chiamata callback, che è una arrow function,</li>
-        <li>dopodichè solo nel momento in cui l'observable riceve la risposta allora richiama la callback che io gli ho sottoscritto</li>
-        <li>la callback penderà nel res(nell'oggetto res) la risposta cioè i dati arrivati dall'http e li stamperà nella console</li>
+        <li>dopodichè solo nel momento in cui l'observable riceve la risposta allora richiama la callback che io gli ho
+            sottoscritto</li>
+        <li>la callback penderà nel res(nell'oggetto res) la risposta cioè i dati arrivati dall'http e li stamperà nella
+            console</li>
         <li>in questo modo portiamo i dati dal server al nostro client</li>
     </ul>
 
-    <button class="btn btn-outline-secondary btn-sm" (click)="inserisciUtente(12,'nomeProva', 21, 'infoProva','userProva','passProva')"> Salva nuovo utente nel db </button>
+    <button class="btn btn-outline-secondary btn-sm"
+        (click)="inserisciUtente(12,'nomeProva', 21, 'infoProva','userProva','passProva')"> Salva nuovo utente nel db
+    </button>
     <button class="btn btn-outline-secondary btn-sm" (click)="inserisciUtente2()"> Salva nuovo utente nel db </button>
-    <p>prima di creare il form e passare quei dati vorrei capire perchè passandoli direttamente al metodo mi salva solo una nuova persona, ma non inserisce i dati</p>
+    <p>prima di creare il form e passare quei dati vorrei capire perchè passandoli direttamente al metodo mi salva solo
+        una nuova persona, ma non inserisce i dati</p>
     <p>(il problema non è qui, ma nel post del metodo inserisciUtente)</p>
+
+
+    <h2>Altre prove</h2>
+    <div>
+        <div>
+            <label>Nome: </label>
+            <input [(ngModel)]="person.name" />
+            <label>Età: </label>
+            <input [(ngModel)]="person.age" />
+        </div>
+        <div>
+            <button (click)="addPerson()">Aggiunti</button>
+        </div>
+    </div>
+
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Età</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let person of persone;">
+                <td>{{person.id}}</td>
+                <td>{{person.name}}</td>
+                <td>{{person.age}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

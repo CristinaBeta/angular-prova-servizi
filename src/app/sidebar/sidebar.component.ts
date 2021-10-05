@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Persona } from '../model/persona.model';
+import { PostService } from '../Services/post.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,20 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  loading: boolean = false;
+      loading: boolean = false;
       id: number = 13;
       nome: string = "tredici"
       eta: number = 22;
       informazioni: string = "tredici";
       user: string = "tredici";
       password: string = "tredici";
+      //altre prove con postService
+      persone:Persona[] = [];
+      person = new Persona();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private apiService:PostService) { }
 
   ngOnInit(): void {
     //chiamata con subscrive nel servizio //this.getService.primaProva3();
     this.listaPersone();
     this.getById(1);
+    //altre prove con postService
+    this.refreshPeople();
   }
 
   listaPersone() {
@@ -42,7 +49,7 @@ export class SidebarComponent implements OnInit {
 
   inserisciUtente(id: number, nome: string, eta: number, informazioni: string, user: string, password: string) {
     this.loading = true;
-    this.http.post('http://localhost:8091/inserisciUtente/', {
+    this.http.post('http://localhost:8091/', {
       id: id,
       nome: nome,
       eta: eta,
@@ -57,7 +64,7 @@ export class SidebarComponent implements OnInit {
 
   inserisciUtente2() {
     this.loading = true;
-    this.http.post('http://localhost:8091/inserisciUtente/', {
+    this.http.post('http://localhost:8091/', {
       id: this.id,
       nome: this.nome,
       eta: this.eta,
@@ -68,6 +75,24 @@ export class SidebarComponent implements OnInit {
       console.log(res);
       this.loading = false;
     })
+  }
+
+  //altre prove con servizio post
+  refreshPeople() {
+    this.apiService.getPeople()
+      .subscribe(data => {
+        console.log(data)
+        this.persone=data;
+      })      
+ 
+  }
+ 
+  addPerson() {
+    this.apiService.addPerson(this.person)
+      .subscribe(data => {
+        console.log(data)
+        this.refreshPeople();
+      })      
   }
 
 }

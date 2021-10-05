@@ -5,7 +5,7 @@
         <div class="col">
             <div ngbDropdown class="d-inline-block">
                 <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Lista elementi</button>
-                <ng-container *ngIf="this.listaElementi !== null">
+                <ng-container *ngIf="this.listaElementi !== null && this.listaElementi.length >2">
                     <div ngbDropdownMenu aria-labelledby="dropdownBasic1" *ngFor="let le of listaElementi">
                         <button ngbDropdownItem (click)="mostraInfo()">{{le.nome}}</button>
                     </div>
