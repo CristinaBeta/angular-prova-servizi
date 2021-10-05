@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Persona } from '../model/persona.model';
+import { Utente } from '../model/utente.model';
 import { PostService } from '../Services/post.service';
 
 @Component({
@@ -18,10 +18,10 @@ export class SidebarComponent implements OnInit {
       user: string = "tredici";
       password: string = "tredici";
       //altre prove con postService
-      persone:Persona[] = [];
-      person = new Persona();
+      persone:Utente[] = [];
+      person = new Utente();
 
-  constructor(private http: HttpClient, private apiService:PostService) { }
+  constructor(private http: HttpClient, private postService:PostService) { }
 
   ngOnInit(): void {
     //chiamata con subscrive nel servizio //this.getService.primaProva3();
@@ -79,7 +79,7 @@ export class SidebarComponent implements OnInit {
 
   //altre prove con servizio post
   refreshPeople() {
-    this.apiService.getPeople()
+    this.postService.getPeople()
       .subscribe(data => {
         console.log(data)
         this.persone=data;
@@ -88,7 +88,7 @@ export class SidebarComponent implements OnInit {
   }
  
   addPerson() {
-    this.apiService.addPerson(this.person)
+    this.postService.addPerson(this.person)
       .subscribe(data => {
         console.log(data)
         this.refreshPeople();

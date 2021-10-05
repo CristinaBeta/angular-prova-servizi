@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Persona } from '../model/persona.model';
+import { Utente } from '../model/utente.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +13,12 @@ export class PostService {
   constructor(private http: HttpClient) {
   }
  
-  getPeople(): Observable<Persona[]> {
+  getPeople(): Observable<Utente[]> {
     console.log('getPeople '+this.baseURL + 'persone')
-    return this.http.get<Persona[]>(this.baseURL + 'persone')
+    return this.http.get<Utente[]>(this.baseURL + 'persone')
   }
  
-  addPerson(person:Persona): Observable<any> {
+  addPerson(person:Utente): Observable<any> {
     const headers = { 'content-type': 'application/json'}  
     const body=JSON.stringify(person);
     console.log(body)

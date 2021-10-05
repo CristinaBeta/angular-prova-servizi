@@ -1,4 +1,4 @@
-export class Persona {
+export class Utente {
     id!: number;
     age!: string;
     name!: string;
