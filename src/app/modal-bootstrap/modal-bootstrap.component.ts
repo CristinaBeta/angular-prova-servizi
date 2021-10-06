@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalService } from '../Services/modal.service';
 
 @Component({
   selector: 'app-modal-bootstrap',
@@ -11,7 +12,7 @@ export class ModalBootstrapComponent implements OnInit {
   
   closeResult!: string;
   
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private modalNoLib: ModalService) {}
 
   ngOnInit(): void {
   }
@@ -32,5 +33,9 @@ export class ModalBootstrapComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  apri() {
+    this.modalNoLib.open();
   }
 }

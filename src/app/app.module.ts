@@ -110,5 +110,5 @@ export class AppModule { }
 
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http); //qui definisco dove andare a cercare i file (se li sposto da assets/i18n)
 }

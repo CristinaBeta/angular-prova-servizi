@@ -1,20 +1,8 @@
 <div class="container">
-    <p>Avrei potuto mettere la dropDown e il typeahead nell'header</p>
-    <h2>DropDown con elementi di json-server</h2>
-    <div class="row">
-        <div class="col">
-            <div ngbDropdown class="d-inline-block">
-                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Lista elementi</button>
-                <ng-container *ngIf="this.listaElementi !== null && this.listaElementi.length >2">
-                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" *ngFor="let le of listaElementi">
-                        <button ngbDropdownItem (click)="mostraInfo()">{{le.nome}}</button>
-                    </div>
-                </ng-container>
-            </div>
-        </div>
-    </div>
+    <h2>Component drop-down</h2>
 
-    <h2>DropDown con FormControl</h2>   <!--questo è un reactive form-->
+    <h2>DropDown con FormControl</h2>
+    <!--questo è un reactive form-->
     <p [ngClass]="{'big' : size == 'big', 'small' : size == 'small'}">
         Frase a cui cambio lo stile
         <select (change)="hello()" [formControl]="selectField">
@@ -24,6 +12,20 @@
         </select>
     </p>
 
+    <h2>DropDown con elementi di json-server</h2>
+    <div class="row">
+        <div class="col">
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Lista elementi</button>
+                <ng-container *ngIf="this.listaElementi !== null && this.listaElementi.length >2">
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" *ngFor="let le of listaElementi">
+                        <button ngbDropdownItem (click)="mostraInfo(le)">{{le.nome}}</button>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <small>I problemi sul dropdown sono solo di visualizzazione e riguardano boostrap -> controllare script in angular.json</small>
 
     <hr>
     <!--NgxTypeahead-->

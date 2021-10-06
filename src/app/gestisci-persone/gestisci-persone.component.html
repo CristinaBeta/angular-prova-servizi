@@ -1,12 +1,12 @@
 <div class="container">
-    <h2>Sono in gestisciPersone component</h2>
+    <h2>Component GestisciPersone </h2>
     <p>Tabella popolata attraverso una chiamata get effettuata da un servizio, su un url realizzato con json-server</p>
     <p>Messo l'attributo routerLink in binding (parentesi quadre) a cui passo un array dove il primo valore è la parte
         fissa, mentre il secondo valore(id) è il parametro che finisce in input al NuoviRouterComponent</p>
     <p>La tabella viene mostrata solo se nell'url non è pesente alcun id (non è stato cliccato l'id che porta al
         dettaglio che si trova sempre in questo template..che a sua volta compare solo se ci si clicca</p>
     <p>Se si vuole vedere la tabella popolata con i dati presi dal db, far partire progetto springBoot "praticaAngular"
-        e poi <button (click)="listaDaSts()">Cliccare qui</button></p>
+        e poi <button class="button15" (click)="listaDaSts()">Cliccare qui</button></p>
 
     <!--Angular  <ng-container> è un elemento di raggruppamento che non interferisce con gli stili o il layout perché Angular non lo inserisce nel DOM.-->
     <!--È quindi utile quando si desidera aggiungere condizionalmente un gruppo di elementi (ovvero utilizzare *ngIf="foo") nella propria applicazione ma non si desidera avvolgerli con un altro elemento .-->
@@ -27,7 +27,7 @@
                     <td><button class="btn" (click)="dettaglioInterno(utenti.id)">{{utenti.id}}</button></td>
                     <td>{{utenti.name}}</td>
                     <td>{{utenti.age}}</td>
-                    <td><a [routerLink]="['/dettaglio', utenti.id]">Dettagli</a></td>
+                    <td><a [routerLink]="['/dettaglio', utenti.id]"><button class="button15">Dettagli</button></a></td>
                 </tr>
             </tbody>
         </table>

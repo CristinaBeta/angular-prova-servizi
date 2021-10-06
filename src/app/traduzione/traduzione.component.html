@@ -1,16 +1,23 @@
-<!--
-    title and text are identifiers ngx-translate uses to find the translation strings. 
-    Now edit the html and replace the static texts with references to the messages in the en.json file.
-
-    You have 3 choices when it comes to adding translations:
-
-    translation pipe — {{'id' | translate}}
-    translation directive — id as attribute value<element [translate]="'id'"></element>
-    translation directive — id as a child <element translate>id</element>
-
--->
 <div class="container">
-  <h1>{{ 'demo.title' | translate }}</h1>
+  <h2>Component traduzione</h2>
+  <p>Titolo e testo sono identificatori che ngx-translate usa per trovare le stringhe di traduzione.
+    <br>Basta sostituire i testi statici con i riferimenti nel file json.
+    <br> Ci sono 3 scelte quando si tratta di aggiungere traduzioni:
+  </p>
+  <ul>
+    <li>
+      translation pipe — &#123;&#123;'id' | translate&#125;&#125;
+    </li>
+    <li>
+      translation directive — id as attribute value &#60;element &#91;translate&#93;="'id'"&#62;&#60;/element&#62;
+    </li>
+    <li>
+      translation directive — id as a child &#60;element translate&#62;id&#60;/element&#62;
+    </li>
+
+  </ul>
+
+  <h2>{{ 'demo.title' | translate }}</h2>
 
   <!-- translation: translation pipe -->
   <p>{{ 'demo.text' | translate }}</p>
@@ -28,11 +35,10 @@
   <button type="button" class="btn btn-outline-danger btn-sm" (click)="useLanguage('it')">it</button>
 
   <br>
-  <br>
-  <br>
-  <p>//Prova di parametro in traduzione
-    <br>
-    {{ 'demo.greeting' | translate:{'name':'Pippo'} }}</p>
+  <h2>Traduzione con paramentro</h2>
+  <p>ngx-translate supporta anche i parametri nelle traduzioni. Vengono passati come oggetto, le chiavi possono essere utilizzate nelle stringhe di traduzione</p>
+   <p> {{ 'demo.greeting' | translate:{'name':'Pippo'} }}</p>
+  
 </div>
 
 <!--

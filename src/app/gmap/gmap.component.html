@@ -1,16 +1,18 @@
 <div class="container">
-    <h2>Sono nel component gmap</h2>
+    <h2>Component gmap (Figlio)</h2>
     <ul class="list-group">
         <li class="list-group-item">
-            All'interno dell'url c'è un parametro sostituito per interpolazione con l'attributo dimensione
+            All'interno dell'url dell'immagine c'è un parametro sostituito per interpolazione &#123; &#125; con l'attributo dimensione.
+            <br>Questa variabile è dichiarata con il decoratore @Input, che serve per passare i valori dal component padre al component figlio (quindi il valore sarà in home, che contiene gmap)
         </li>
         <li class="list-group-item">
-            All'interno del component principale c'è un attributo che definisce la dimensione corrente di tipo
-            Grandezza(interfaccia) ed un array di dimensioni di tipo Grandezza
+            All'interno del component home c'è un attributo che definisce la dimensione corrente di tipo Grandezza(interfaccia) ed un array di dimensioni di tipo Grandezza
         </li>
     </ul>
     <br>
-    <img
-        src="https://lh3.googleusercontent.com/-iogi_1MXfMs/Wss3ettGd8I/AAAAAAABBwc/_IZPflOa7nMfyK-PQD88Ar88iqSvdgtoQCHMYCw/dimensioni-immagine%255B2%255D?imgmax={{dimensione}}">
+    <!--<img
+        src="https://lh3.googleusercontent.com/-iogi_1MXfMs/Wss3ettGd8I/AAAAAAABBwc/_IZPflOa7nMfyK-PQD88Ar88iqSvdgtoQCHMYCw/dimensioni-immagine%255B2%255D?imgmax={{dimensione}}">-->
+
+        <img src="http://lh3.googleusercontent.com/-zbed3D2O61g/Vjt4unfNUbI/AAAAAAAAHY4/2AUx7gBjtC4/nature_thumb%25255B2%25255D.jpg?imgmax={{dimensione}}">
 
 </div>

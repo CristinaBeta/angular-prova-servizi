@@ -11,7 +11,7 @@ export class ColorDirective {
 
    }
 
-   @HostListener('click') onClick(){          //@HostListener ci permette di creare una funziona evento
+   @HostListener('click') onClick(){          //@HostListener ci permette di creare una funzione evento
      alert("il colore è " + this.color);
    }
 

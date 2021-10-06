@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Grandezza } from '../interfacce/Grandezza';
 import { ModalService } from '../Services/modal.service';
 import { ServizioChiamata } from '../Services/ServizioChiamata';
@@ -44,10 +43,6 @@ export class HomeComponent implements OnInit {
 
   updateDimensione(i: Grandezza) {
     this.current = i;
-  }
-  
-  open() {
-    this.modalService.open();
   }
   
 }

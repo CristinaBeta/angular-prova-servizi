@@ -22,8 +22,8 @@ export class DropDownComponent implements OnInit {
     });
   }
 
-  mostraInfo(){
-    console.log("aaa");
+  mostraInfo(le:ElementiDD){
+    console.log(le.nome);
   }
 
   hello() {

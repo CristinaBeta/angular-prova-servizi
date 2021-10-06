@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Sono nel component tab-bar</h2>
+    <h2>Component tab-bar (Figlio)</h2>
     <div class="btn btn-group">
         <button class="btn btn-outline-secondary" [ngClass]="{'btn-success': active?.dimensione === i.dimensione}"
             *ngFor="let i of items" (click)="itemClickHandler(i)">
@@ -8,22 +8,19 @@
     </div>
     <ul class="list-group">
         <li class="list-group-item">
-            I bottoni sono generati attravero un *ngFor che cicla su items, input di tipo Grandezza (interfaccia con
-            nome e
-            dimensione)
+            I bottoni sono generati attraverso un *ngFor che cicla su items, input di tipo Grandezza (interfaccia con nome e dimensione)
         </li>
         <li class="list-group-item">
             All'interno del bottone visualizzo l'attributo nome di ogni elemento
         </li>
         <li class="list-group-item">
-            Al click il metodo itemClickHandler() emette un evento restituendo l'elemento del ciclo come parametro
+            Al click il metodo itemClickHandler() emette un evento (creato tramite EventEmitter) restituendo l'elemento del ciclo come parametro
             (this.evento.emit(i); )
         </li>
         <li class="list-group-item">
-            <small>Aggiunto nei bottoni [ngClass] a cui passo un oggetto(chiave:valore) in cui la chiave è la classe che
+            Nei bottoni c'è inoltre un esempio di [ngClass] a cui passo un oggetto(chiave:valore) in cui la chiave è la classe che
                 voglio applicare ed il valore è un booleano.
                 Ho aggiunto un attributo di tipo Grandezza in tab-bar per fare il check ===
-            </small>
         </li>
     </ul>
 

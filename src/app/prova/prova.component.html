@@ -1,23 +1,29 @@
 <div class="container">
-    <h2>Sono nel component prova</h2>
-    <a routerLink="">link</a>
+    <h2>Component prova</h2>
+
+    <h3>RouterLink</h3>
     <p>All'interno dell'applicazione è meglio usare un routerLink al posto di href perchè non ricarica tutta la pagina,
-        ma solo il componente. </p>
-    <br>
+        ma solo il componente. <a routerLink="">home</a> </p>
     Un oggetto Route contiene diverse proprietà, le principali sono:
     <ul>
         <li>path: specifica il percorso che stiamo configurando;</li>
         <li>component: specifica il component a cui path si riferisce;</li>
     </ul>
-    <ul><li class="list-group-item">
-        Bottone che al click salva una variabile di sessione con chiave "pulsante"; questa variabile viene aggiunta nell'header: 
-        <button type="button" class="btn btn-outline-secondary btn-sm" (click)=salvaVarInSessione()>Salva</button>
-    </li></ul>
+    <small>app-routing.module.ts è dove vengono definite tutte le route</small>
     <hr>
-    <h3>Prime prove - Riepilogo</h3>
+    <h3>Variabile di sessione</h3>
     <ul class="list-group">
         <li class="list-group-item">
-            Ciao + variabile (interpolazione): Ciao <label>{{nome}}</label>
+            Bottone che al click salva una variabile di sessione con chiave "pulsante"; questa variabile viene aggiunta
+            nell'header:
+            <button type="button" class="btn btn-outline-secondary btn-sm" (click)=salvaVarInSessione()>Salva</button>
+        </li>
+    </ul>
+    <hr>
+    <h3>Interpolazione</h3>
+    <ul class="list-group">
+        <li class="list-group-item">
+            Testo + variabile (interpolazione): Ciao <label>{{nome}}</label>
             <br>
             Dopo 2 secondi il costruttore cambia il valore della variabile
         </li>
@@ -25,11 +31,13 @@
             Variabile + variabile: {{var1 + var2}}
         </li>
         <li class="list-group-item">
-            Bottone che al click cambia il valore della prima variabile: <button class="btn btn-outline-secondary btn-sm"
-                (click)=sostituisciNome()>Pippo</button><button class="btn btn-outline-secondary btn-sm"
-                (click)="nome = 'Pluto'">Pluto</button>
+            Bottone che al click cambia il valore della prima variabile: <button
+                class="btn btn-outline-secondary btn-sm" (click)=sostituisciNome()>Pippo</button><button
+                class="btn btn-outline-secondary btn-sm" (click)="nome = 'Pluto'">Pluto</button>
         </li>
     </ul>
+    <hr>
+    <h3>Data binding</h3>
     <p>Quello che scrivo qui lo stampa subito dopo grazie al data-binding a 2vie (al cambiamento dell'input cambia anche
         il component e viceversa)</p>
     <div class="col-xs-12">
@@ -52,8 +60,10 @@
             <button class="button9" (click)="getData(input)">Clicca</button>
         </div>
     </div>
+    <hr>
+    <h3>Direttive</h3>
     <p>
-        Data binding collegato alle direttive: il dom carica solo se la condizione è rispettata
+        Data binding collegato alle direttiva *ngIf: il dom carica solo se la condizione è rispettata
     </p>
     <small>se scrivi paperino, ti dice "Il tuo nome è", altrimenti nulla</small>
     <div class="col-xs-12">
@@ -61,11 +71,21 @@
             <input type="text" class="form-control" [(ngModel)]="soprannome">
             <p *ngIf="soprannome === 'paperino'">Il tuo nome è {{soprannome}}</p>
         </div>
+        <p>Altri esempi di direttive strutturali, cioè direttive che vanno a modificare la struttura del DOM aggiungendo
+            o rimuovendo degli elementi, sono *ngFor e *ngSwitch</p>
     </div>
+    <h3>Direttiva custom</h3>
+    <p>Generata una nuova direttiva @Directive, passo il selettore all'elemento html a cui voglio far assumere quella
+        direttiva
+        <br>@HostListener ci permette di creare una funzione evento
+        <br>quando il mouse entra nell'area dell'elemento html chiamo il metodo colorize e gli passo un colore
+        <br>colorize() imposta il background color del colore che gli ho passato
+    </p>
+    <p colorDirective color="blue"> Passa qui</p>
+    <p colorDirective color="green"> Passa qui</p>
+
     <hr>
-    <h2>Prove angular material</h2>
+    <h3>Prova angular material</h3>
     <mat-slider min="1" max="100" step="1" value="50"></mat-slider>
-    <hr>
-    <h1 colorDirective color="blue"> Prova direttiva colore</h1>
-    <h1 colorDirective color="red"> Prova direttiva colore</h1>
+
 </div>

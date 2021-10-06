@@ -1,4 +1,5 @@
-<p>NgxTypeahead package is a stand-alone Autocomplete module which is free from any dependencies. </p>
+<h2>Component typeahead-search</h2>
+<p>NgxTypeahead è un modulo di completamento automatico autonomo privo di dipendenze. </p>
 
 <h2>Semplice Typeahead con lista locale</h2>
 <input [value]="search1" ngxTypeahead [taList]="myLocalList" (taSelected)="selectedStatic($event)">
@@ -36,13 +37,10 @@
     [taParams]: Parameters which will be sent with the above API request.
 -->
 
-<br>
+<!--<br>
 <h2>Typeahead con richiesta al server per suggerimenti</h2>
-<input [value]="search3" ngxTypeahead 
-[taUrl]="this.url" 
-[taParams]="params" 
-[taItemTpl]="myAPIrespTemp"
-(taSelected)="selectedAPITempStatic($event)">
+<input [value]="search3" ngxTypeahead [taUrl]="this.url" [taParams]="params" [taItemTpl]="myAPIrespTemp"
+    (taSelected)="selectedAPITempStatic($event)">
 
 <ng-template #myAPIrespTemp let-item>
     <div class="item-name">
@@ -51,4 +49,4 @@
     <div class="item-desc">
         {{item.result.description}}
     </div>
-</ng-template><small>da rivedere</small>
+</ng-template><small>da rivedere</small>-->
