@@ -52,24 +52,7 @@
         </div>
     </div>
 
-    <h2>Chiamata in post su server (sts progetto pratica.Angular)</h2>
-    <!--<div>
-        <div>
-            <label> Nome: </label>
-            <input [(ngModel)]="persona.name" />
-            <label> Età: </label>
-            <input [(ngModel)]="persona.age" />
-            <label> Informazioni: </label>
-            <input [(ngModel)]="persona.info" />
-            <label> Username: </label>
-            <input [(ngModel)]="persona.user" />
-            <label> Password: </label>
-            <input [(ngModel)]="persona.password" />
-        </div>
-        <div>
-            <button class="btn btn-outline-secondary btn-sm" (click)="aggiungiPersona()">Aggiungi</button>
-        </div>
-    </div>-->
+    <h2>Chiamata in post su server (sts progetto pratica.Angular) + http.delete</h2>
     <form>
         <div class="form-row align-items-center">
           <div class="col-auto">
@@ -116,6 +99,7 @@
                 <td>{{persona.info}}</td>
                 <td>{{persona.user}}</td>
                 <td>{{persona.password}}</td>
+                <td><button type="button" class="button15" (click)="eliminaPersona(persona)">Elimina</button></td>
             </tr>
         </tbody>
     </table>

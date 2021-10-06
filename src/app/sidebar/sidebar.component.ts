@@ -62,4 +62,11 @@ export class SidebarComponent implements OnInit {
       })      
   }
 
+  eliminaPersona(p:Persona) {
+    this.postService.deletePersona(p).subscribe(data => {
+      console.log(data)
+      this.refreshPersone();
+    })            
+  }
+
 }

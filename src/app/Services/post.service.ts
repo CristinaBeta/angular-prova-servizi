@@ -7,14 +7,15 @@ import { Utente } from '../model/utente.model';
 @Injectable({
   providedIn: 'root'
 })
-export class PostService {
+export class PostService {    //si chiama postService, ma ci sono http.get e http.delete
 
   baseURL: string = "http://localhost:4000/";
   urlDaSts: string = "http://localhost:8091/";
+  stato: string = "";
  
   constructor(private http: HttpClient) {
   }
- 
+  
   getPeople(): Observable<Utente[]> {
     console.log('getPeople '+this.baseURL + 'persone')
     return this.http.get<Utente[]>(this.baseURL + 'persone')
@@ -38,4 +39,9 @@ export class PostService {
     console.log(body)
     return this.http.post(this.urlDaSts, body,{'headers':headers})
   }
+
+  deletePersona(p:Persona){
+    return this.http.delete(this.urlDaSts + 'elimina/' + p.id)
+  }
+
 }
