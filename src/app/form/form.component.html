@@ -1,5 +1,5 @@
 <h2>Component form</h2>
-<p>Form con l'utilizzo di form builder</p>
+<p>Form con l'utilizzo di form builder che all'invio controlla se sono pesenti i campi obbligatori e ha un metodo check per controllare la lunghezza dell'username</p>
 <div class="formContainer">
     <form (ngSubmit)="send()" [formGroup]="form"> <!--attribuisce a questo form html il form group e si aspetta per ogni campo il [FormControl]= che nelle nuove versioni per i gruppi è formControlName-->
         <input class="form-control" type="text" (input)="checkUser()" placeholder="Username, min lunghezza=6" formControlName="user"> 

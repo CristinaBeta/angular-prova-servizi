@@ -1,38 +1,42 @@
 <div class="container">
   <h2>Component profile-editor</h2>
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  <!--The FormGroup directive listens for the submit event emitted by the form element and emits an ngSubmit event that you can bind to a callback function.-->
-  <!-- mettendo questo nel form (ngSubmit)="onSubmit() sto dicendo questo: <button type="submit" [disabled]="!profileForm.valid" (click)="onSubmit()">Submit</button> -->
-  <label for="first-name">Nome: </label><br>
-  <input id="first-name" type="text" formControlName="firstName"><br>
+  <p>Form con FormGroup con dentro FormControl e FormGroup annidato (indirizzo)</p>
+  <p>Cliccando su aggiorna profilo verranno modificati i valori dell'indirizzo con valori definiti</p>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <!--La direttiva FormGroup ascolta l'evento submit emesso dall'elemento form ed emette un evento ngSubmit che puoi associare a una funzione di callback.-->
+    <!-- mettendo questo nel form (ngSubmit)="onSubmit() sto dicendo questo: <button type="submit" [disabled]="!profileForm.valid" (click)="onSubmit()">Submit</button> -->
+    <label for="first-name">Nome: </label><br>
+    <input id="first-name" type="text" formControlName="firstName"><br>
 
-  <label for="last-name">Cognome: </label><br>
-  <input id="last-name" type="text" formControlName="lastName"><br>
+    <label for="last-name">Cognome: </label><br>
+    <input id="last-name" type="text" formControlName="lastName"><br>
 
-  <!--gruppo annidato-->
-  <div formGroupName="address">
-    <label for="street">Via: </label><br>
-    <input id="street" type="text" formControlName="street"><br>
-  
-    <label for="city">Città: </label><br>
-    <input id="city" type="text" formControlName="city"><br>
-  
-    <label for="state">Stato: </label><br>
-    <input id="state" type="text" formControlName="state"><br>
-  
-    <label for="zip">Codice postale: </label><br>
-    <input id="zip" type="text" formControlName="zip"><br>
-  </div>
-  <!--/fine gruppo annidato-->
+    <!--gruppo annidato-->
+    <div formGroupName="address">
+      <label for="street">Via: </label><br>
+      <input id="street" type="text" formControlName="street"><br>
+
+      <label for="city">Città: </label><br>
+      <input id="city" type="text" formControlName="city"><br>
+
+      <label for="state">Stato: </label><br>
+      <input id="state" type="text" formControlName="state"><br>
+
+      <label for="zip">Codice postale: </label><br>
+      <input id="zip" type="text" formControlName="zip"><br>
+    </div>
+    <!--/fine gruppo annidato-->
+    <br>
+    <button type="submit" class="btn btn-outline-info btn-sm" [disabled]="!profileForm.valid">Salva</button><button
+      class="btn btn-outline-info btn-sm" (click)="updateProfile()">Aggiorna profilo</button>
+  </form>
   <br>
-  <button type="submit" class="btn btn-outline-info btn-sm" [disabled]="!profileForm.valid">Salva</button><button class="btn btn-outline-info btn-sm" (click)="updateProfile()">Aggiorna profilo</button>
-</form>
-<br>
-<p>Valori del form in json: {{ profileForm.value | json }}</p>     <!--JsonPipe converts a value into its JSON-format representation. Useful for debugging. {{ value_expression | json }} -->
-<hr>
+  <p>Valori del form in json: {{ profileForm.value | json }}</p>
+  <!--JsonPipe converts a value into its JSON-format representation. Useful for debugging. {{ value_expression | json }} -->
+  <hr>
 
-<!--component form-->
-<app-form></app-form>
+  <!--component form-->
+  <app-form></app-form>
 
 
 
