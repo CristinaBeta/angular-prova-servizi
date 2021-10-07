@@ -1,9 +1,17 @@
-<p>Ho provato a studiare da <a href="https://medium.com/@tarekabdelkhalek/how-to-create-a-drag-and-drop-file-uploading-in-angular-78d9eba0b854">qui</a> l'upload dei file, ma devo ancora capirlo </p>
+<h2>Component drag-drop</h2>
+
+<p>Simulazione di upload file</p>
+<p>Da rivedere <a href="https://medium.com/@tarekabdelkhalek/how-to-create-a-drag-and-drop-file-uploading-in-angular-78d9eba0b854">qui</a> </p>
+
+<p>Usando @ViewChild possiamo facilmente iniettare componenti, direttive o semplici elementi DOM. 
+    può prendere in input anche una classe di componente quando vogliamo accedere alla reference di un componente: @ViewChild(MioComponente)
+    In questo caso avremo accesso anche a tutti i metodi di quel componente, in maniera type safe.*/
+    Il decoratore @ViewChild ci consente di iniettare in un componente riferimenti a elementi utilizzati all'interno del suo template.</p>
 
 <div class="container" appDnd (fileDropped)="onFileDropped($event)">
-    <input type="file" #fileDropRef id="fileDropRef" ><!--multiple (change)="fileBrowseHandler($event.target.files)" /> -->
+    <input type="file" #fileDropRef id="fileDropRef"> <!--multiple (change)="fileBrowseHandler($event.target.files)" /> Cercare con f12 percorso giusto-->
     <img src="assets/img/dnd/ic-upload-file.svg" alt="">
-    <h3>Drag and drop file here</h3>
-    <h3>or</h3>
-    <label for="fileDropRef">Browse for file</label>
+    <h3>Trascina e rilascia il file qui</h3>
+    <h3>o</h3>
+    <label for="fileDropRef"> Cerca file </label>
 </div>

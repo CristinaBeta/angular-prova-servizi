@@ -11,11 +11,7 @@ export class TypeaheadSearchComponent implements OnInit {
   public search1 = '';
   public search2 = '';
   public url = 'http://localhost:5000/dropdown';
-  public search3 = '';
   public search4 = '';
-  public params = {
-    query:this.search3
-  };
 
   public myLocalList = [
     "Burgers",
@@ -81,10 +77,6 @@ export class TypeaheadSearchComponent implements OnInit {
 
   selectedTempStatic(item: string) {
     this.search2 = item;
-  }
-
-  public selectedAPITempStatic (item: string) {
-    this.search3 = item;
   }
 
   listaDaJson(item: string) {   

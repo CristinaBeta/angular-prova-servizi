@@ -1,5 +1,12 @@
 <h2>Component typeahead-search</h2>
 <p>NgxTypeahead è un modulo di completamento automatico autonomo privo di dipendenze. </p>
+<p>è composto da:</p>
+<ul>
+    <li>[value]: valore iniziale</li>
+    <li>[taList]: elenco di dati degli elementi che verrà popolato quando un utente digita.</li>
+    <li>(taSelected): emette un evento quando viene selezionato un elemento dai suggerimenti.</li>
+    <li>[taItemTpl]: accetta la variabile template definita su ng-template</li>
+</ul>
 
 <h2>Semplice Typeahead con lista locale</h2>
 <input [value]="search1" ngxTypeahead [taList]="myLocalList" (taSelected)="selectedStatic($event)">
@@ -20,33 +27,10 @@
 
 <br>
 <h2>Typeahead con richiesta al server per suggerimenti</h2>
-<input [value]="search4" ngxTypeahead [taList]="myDataList" [taItemTpl]="risp"
-    (taSelected)="selectedTempStatic($event)">
+<input [value]="search4" ngxTypeahead [taList]="myDataList" [taItemTpl]="risp" (taSelected)="listaDaJson($event)">
 
 <ng-template #risp let-item>
     <div class="item-name">
         {{item.result.name}}
     </div>
 </ng-template>
-
-
-<!--[taList]: Items data list which will populate when a user types.
-    (taSelected): Emit event when an item from suggestions is selected.
-    [taItemTpl]: Takes the template variable defined on <ng-template></ng-template>
-    [taUrl]: URL of remote API url/ end-point to get results.
-    [taParams]: Parameters which will be sent with the above API request.
--->
-
-<!--<br>
-<h2>Typeahead con richiesta al server per suggerimenti</h2>
-<input [value]="search3" ngxTypeahead [taUrl]="this.url" [taParams]="params" [taItemTpl]="myAPIrespTemp"
-    (taSelected)="selectedAPITempStatic($event)">
-
-<ng-template #myAPIrespTemp let-item>
-    <div class="item-name">
-        {{item.result.name}}
-    </div>
-    <div class="item-desc">
-        {{item.result.description}}
-    </div>
-</ng-template><small>da rivedere</small>-->

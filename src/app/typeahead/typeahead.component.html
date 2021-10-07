@@ -1,6 +1,11 @@
 <h2>Component typeahead</h2>
 
-<label for="typeahead-focus">Mostra 10 risultati anche se non si scrive nulla</label>
+<label for="typeahead-focus">In questo esempio, viene eseguita una ricerca indipendentemente dal contenuto dell'input:</label>
+<ul>
+  <li>su input vuoto verranno prese tutte le opzioni</li>
+  <li>altrimenti le opzioni verranno filtrate in base al termine di ricerca</li>
+  <li>limiterà la visualizzazione a 10 risultati in tutti i casi</li>
+</ul>
 <input
   id="typeahead-focus"
   type="text"
@@ -12,13 +17,3 @@
   #instance="ngbTypeahead"
 />
 <pre>Model: {{ model | json }}</pre>
-
-<!--
-  It is possible to get the focus events with the current input value to emit results on focus with a great flexibility.
-In this simple example, a search is done no matter the content of the input:
-<ul>
-  <li>on empty input all options will be taken</li>
-  <li>otherwise options will be filtered against the search term</li>
-  <li>it will limit the display to 10 results in all cases</li>
-</ul>
--->

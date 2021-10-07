@@ -19,8 +19,10 @@ const states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'C
 })
 export class TypeaheadComponent implements OnInit {
   model: any;
-
-  @ViewChild('instance', { static: true }) instance!: NgbTypeahead;
+  /*Usando @ViewChild possiamo facilmente iniettare componenti, direttive o semplici elementi DOM. 
+  può prendere in input anche una classe di componente quando vogliamo accedere alla reference di un componente: @ViewChild(MioComponente)
+  In questo caso avremo accesso anche a tutti i metodi di quel componente, in maniera type safe.*/
+  @ViewChild('instance', { static: true }) instance!: NgbTypeahead;       //Il decoratore @ViewChild ci consente di iniettare in un componente riferimenti a elementi utilizzati all'interno del suo template. 
   focus$ = new Subject<string>();
   click$ = new Subject<string>();
 

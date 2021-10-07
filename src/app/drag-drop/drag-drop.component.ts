@@ -6,27 +6,22 @@ import { Component, ViewChild, ElementRef } from "@angular/core";
   styleUrls: ["./drag-drop.component.css"],
 })
 export class DragDropComponent {
-  @ViewChild("fileDropRef", { static: false }) fileDropEl!: ElementRef;
+  /*Usando @ViewChild possiamo facilmente iniettare componenti, direttive o semplici elementi DOM. 
+  può prendere in input anche una classe di componente quando vogliamo accedere alla reference di un componente: @ViewChild(MioComponente)
+  In questo caso avremo accesso anche a tutti i metodi di quel componente, in maniera type safe.*/
+  @ViewChild("fileDropRef", { static: false }) fileDropEl!: ElementRef;       //Il decoratore @ViewChild ci consente di iniettare in un componente riferimenti a elementi utilizzati all'interno del suo template.
   files: any[] = [];
 
-  /**
-   * on file drop handler
-   */
+  //quando trascino file
   onFileDropped($event: any[]) {
     this.prepareFilesList($event);
   }
 
-  /**
-   * handle file from browsing
-   */
   fileBrowseHandler(files: any[]) {
     this.prepareFilesList(files);
   }
 
-  /**
-   * Delete file from files list
-   * @param index (File index)
-   */
+  //cancella file tramite index
   deleteFile(index: number) {
     if (this.files[index].progress < 100) {
       console.log("Upload in progress.");
@@ -35,9 +30,7 @@ export class DragDropComponent {
     this.files.splice(index, 1);
   }
 
-  /**
-   * Simulate the upload process
-   */
+  //simula processo di upload
   uploadFilesSimulator(index: number) {
     setTimeout(() => {
       if (index === this.files.length) {
@@ -55,10 +48,7 @@ export class DragDropComponent {
     }, 1000);
   }
 
-  /**
-   * Convert Files list to normal array list
-   * @param files (Files List)
-   */
+  //converte la lista di file in arrayList
   prepareFilesList(files: Array<any>) {
     for (const item of files) {
       item.progress = 0;
@@ -68,11 +58,7 @@ export class DragDropComponent {
     this.uploadFilesSimulator(0);
   }
 
-  /**
-   * format bytes
-   * @param bytes (File size in bytes)
-   * @param decimals (Decimals point)
-   */
+  //quanti byte è
   formatBytes(bytes: number, decimals = 2) {
     if (bytes === 0) {
       return "0 Bytes";
