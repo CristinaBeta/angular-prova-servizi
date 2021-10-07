@@ -6,7 +6,8 @@ import { Utenti } from '../interfacce/Utenti';
 @Injectable({
   providedIn: 'root'
 })
-export class GetService implements OnInit{
+export class GetService implements OnInit{        //servizio per http.get
+
   url: string = 'http://localhost:4000/persone';  //da cartella server aprire terminale integrato e npx json-server -p 4000 --watch persone.json
   url2: string = 'http://localhost:8091/';      //da Spring tool suite far partire progetto SpringBoot praticaAngular
   url3: string = 'http://localhost:5000/dropdown'; //da cartella server aprire terminale integrato e npx json-server -p 5000 --watch dropDown.json

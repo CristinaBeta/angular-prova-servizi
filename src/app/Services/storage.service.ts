@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class StorageService {
+export class StorageService {     //servizio per salvare variabili di sessione
 
 
   constructor() { }
