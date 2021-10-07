@@ -23,7 +23,7 @@ export class DropDownComponent implements OnInit {
   }
 
   mostraInfo(le:ElementiDD){
-    console.log(le.nome);
+    alert(le.nome);
   }
 
   hello() {
@@ -34,6 +34,14 @@ export class DropDownComponent implements OnInit {
     } else {
       this.size = "none";
     }
+  }
+
+  alert(){
+    alert("Lorem ipsum");
+  }
+
+  alert2(){
+    alert('problemi di visualizzazione dovuti a popper, vedere con f12 3 elementi appena caricata pagina, ho provato a sostituie anche la versione separata con "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js", ma nulla');
   }
 
 }
