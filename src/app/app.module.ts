@@ -41,6 +41,8 @@ import { TypeaheadSearchComponent } from './typeahead-search/typeahead-search.co
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 import { FormComponent } from './form/form.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { FileSaverComponent } from './file-saver/file-saver.component';
+//import { FileSaverModule } from 'ngx-filesaver';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     TypeaheadSearchComponent,
     ProfileEditorComponent,
     FormComponent,
-    SidebarComponent   
+    SidebarComponent,
+    FileSaverComponent   
   ],
   imports: [
     BrowserModule,
@@ -101,7 +104,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
             deps: [HttpClient]
         }
     }),
-    NgxTypeaheadModule      
+    NgxTypeaheadModule/*,
+    FileSaverModule  */    
   ],
   providers: [],
   bootstrap: [AppComponent]
