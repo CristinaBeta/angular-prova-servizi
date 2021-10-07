@@ -29,7 +29,7 @@ const routes: Routes = [
   {path:'dettaglioInterno/:id' , component: GestisciPersoneComponent},
   {path:'login' , component: LoginComponent},
   {path:'dopoLogin', component: DopoLoginComponent, canActivate: [AuthGuardService]},
-  {path:'addressForm', component: AddressFormComponent, canActivate: [AuthGuardService]},
+  {path:'addressForm', component: AddressFormComponent},
   {path:'modal' , component: ModalBootstrapComponent},
   {path:'dnd' , component: DragDropComponent},
   {path:'upload' , component: UploadComponent},
