@@ -16,6 +16,8 @@ import { TraduzioneComponent } from './traduzione/traduzione.component';
 import { DropDownComponent } from './drop-down/drop-down.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { EserciziComponent } from './esercizi/esercizi.component';
+import { TypeaheadSearchComponent } from './typeahead-search/typeahead-search.component';
 
 const routes: Routes = [
 
@@ -37,6 +39,8 @@ const routes: Routes = [
   {path:'dropdown' , component: DropDownComponent},
   {path:'form' , component: ProfileEditorComponent},
   {path:'sidebar' , component: SidebarComponent},
+  {path:'esercizi' , component: EserciziComponent},
+  {path:'typeahead' , component: TypeaheadSearchComponent}
 ];
 
 @NgModule({

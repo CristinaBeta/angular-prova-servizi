@@ -42,6 +42,8 @@ import { ProfileEditorComponent } from './profile-editor/profile-editor.componen
 import { FormComponent } from './form/form.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FileSaverComponent } from './file-saver/file-saver.component';
+import { EserciziComponent } from './esercizi/esercizi.component';
+import { CorniceComponent } from './cornice/cornice.component';
 //import { FileSaverModule } from 'ngx-filesaver';
 
 @NgModule({
@@ -72,7 +74,9 @@ import { FileSaverComponent } from './file-saver/file-saver.component';
     ProfileEditorComponent,
     FormComponent,
     SidebarComponent,
-    FileSaverComponent   
+    FileSaverComponent,
+    EserciziComponent,
+    CorniceComponent   
   ],
   imports: [
     BrowserModule,
