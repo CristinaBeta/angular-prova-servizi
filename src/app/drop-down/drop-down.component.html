@@ -30,28 +30,13 @@
     </div>
 
     <h2>DropDown con elementi di json-server</h2>
-    <!--<div ngbDropdown #myDrop1="ngbDropdown" class="d-inline-block">
-        <button class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownAnchor (focus)="myDrop1.open()">Lista
-            elementi</button>
-        <ng-container *ngIf="this.listaElementi !== null && this.listaElementi.length >2">
-            <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1"
-                *ngFor="let le of listaElementi">
-                <button class="dropdown-item" ngbDropdownItem (click)="mostraInfo(le)">{{le.nome}}</button>
-            </div>
-        </ng-container>
-    </div>
-    <br>
-    <small>I problemi sul dropdown sono solo di visualizzazione e riguardano Popper. L'ho installato, importato in
-        angular.json, aggiunto lo script in index.html, ma nulla :( <a
-            href="https://stackoverflow.com/questions/45650583/how-to-import-popper-js">how to</a></small> -->
-
     <div class="btn-group">
         <button type="button" id="dropdownMenuBis" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Lista elementi</span>
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuBis" *ngFor="let le of listaElementi">
-            <button class="dropdown-item" (click)="mostraInfo(le)">{{le.nome}}</button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuBis" >
+            <button class="dropdown-item" *ngFor="let le of listaElementi" (click)="mostraInfo(le)">{{le.nome}}</button>
             <div class="dropdown-divider"></div>
             <button class="dropdown-item" (click)="alert2()">Lorem ipsum</button>
         </div>

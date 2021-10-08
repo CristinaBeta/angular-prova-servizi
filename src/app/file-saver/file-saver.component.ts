@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './file-saver.component.html',
   styleUrls: ['./file-saver.component.css']
 })
-export class FileSaverComponent implements OnInit {
+export class FileSaverComponent implements OnInit {     //Purtroppo è incompatibile con Angular11, se provo a risolvere i problemi fa il downgrade di angular/cli locale alla versione 7
   public text = '{ "text": "This is text file!" }';
   public fileName!: string;
 
