@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Utenti } from '../interfacce/Utenti';
 import { GetService } from '../Services/get.service';
 
@@ -11,8 +12,10 @@ import { GetService } from '../Services/get.service';
 export class GestisciPersoneComponent implements OnInit {
   listaPersone: Utenti[] = [];
   personeId: number=0;
+  closeResult!: string;
+  id: number=0;
 
-  constructor(private getService: GetService, private route:Router, private activatedRoute: ActivatedRoute) {
+  constructor(private getService: GetService, private route:Router, private activatedRoute: ActivatedRoute, private modalService: NgbModal) {
     
    }
 
@@ -47,5 +50,25 @@ export class GestisciPersoneComponent implements OnInit {
 
   avviso(){
     alert("Si stanno provando a richiamare i dati dal db, assicurarsi che il progetto praticaAngular sia partito"); //potevo metterlo direttamente in listaDaSt()
+  }
+
+  //modal
+  open(content: any, id:number) {
+    this.id = id;
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
   }
 }

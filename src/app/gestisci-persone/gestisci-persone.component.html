@@ -20,6 +20,7 @@
                     <th>Nome</th>
                     <th>Età</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -27,11 +28,45 @@
                     <td><button class="btn" (click)="dettaglioInterno(utenti.id)">{{utenti.id}}</button></td>
                     <td>{{utenti.name}}</td>
                     <td>{{utenti.age}}</td>
-                    <td><a [routerLink]="['/dettaglio', utenti.id]"><button class="button15">Dettagli</button></a></td>
+                    <td><a [routerLink]="['/dettaglio', utenti.id]"><button class="button15">Dettagli altro component</button></a></td>
+                    <td><button class="button15" (click)="open(mymodal,utenti.id)">Dettagli nel modal</button></td>
                 </tr>
             </tbody>
         </table>
     </ng-container>
+
+    <ng-template #mymodal let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Informazioni su {{this.listaPersone[this.id - 1].name}}</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-4"
+                    *ngIf="this.listaPersone[this.id - 1].info === null || this.listaPersone[this.id - 1].info === undefined; else info">
+                    <h3>Informazioni</h3>"Lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non
+                    numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
+                    veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi
+                    consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur,
+                    vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? [33] At vero eos et accusamus et iusto
+                    odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et
+                    quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia
+                    deserunt mollitia animi, id est laborum et dolorum fuga."
+                </div>
+                <ng-template #info>
+                    <div class="col-md-4">
+                        <h3>{{this.listaPersone[this.id - 1].info}}</h3>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark btn-sm" (click)="modal.close('Save click')">Ok</button>
+        </div>
+    </ng-template>
+
     <!--    
 <div *ngFor="let lp of listaPersone">
 <button class="btn" (click)="prova(lp.id)">Dettaglio</button>
@@ -51,8 +86,7 @@
         <div class="col-md-4"
             *ngIf="this.listaPersone[this.personeId -1].info === null || this.listaPersone[this.personeId -1].info === undefined; else info">
             <h3>Informazioni</h3>"Lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam
-            eius
-            modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
+            eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
             nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
             autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel
             illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? [33] At vero eos et accusamus et iusto odio
@@ -67,8 +101,7 @@
         </ng-template>
         <div class="col-md-4">
             <h3>Lorem ipsum</h3>"Lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam
-            eius
-            modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
+            eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
             nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
             autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel
             illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? [33] At vero eos et accusamus et iusto odio

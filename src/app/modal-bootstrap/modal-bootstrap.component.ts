@@ -7,9 +7,7 @@ import { ModalService } from '../Services/modal.service';
   templateUrl: './modal-bootstrap.component.html',
   styleUrls: ['./modal-bootstrap.component.css']
 })
-export class ModalBootstrapComponent implements OnInit {
-  title = 'appBootstrap';
-  
+export class ModalBootstrapComponent implements OnInit {  
   closeResult!: string;
   
   constructor(private modalService: NgbModal, private modalNoLib: ModalService) {}

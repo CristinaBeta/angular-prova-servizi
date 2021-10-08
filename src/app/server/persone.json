@@ -99,31 +99,6 @@
       "id": 20,
       "age": 40,
       "name": "Carmela Caldwell"
-    },
-    {
-      "name": "Prova",
-      "age": "34",
-      "id": 21
-    },
-    {
-      "name": "Prova2",
-      "age": "35",
-      "id": 22
-    },
-    {
-      "name": "Prova3",
-      "age": "36",
-      "id": 23
-    },
-    {
-      "name": "Prova4",
-      "age": "37",
-      "id": 24
-    },
-    {
-      "name": "Prova5",
-      "age": "38",
-      "id": 25
     }
   ]
 }

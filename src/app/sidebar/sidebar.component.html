@@ -45,51 +45,36 @@
     <h2>Chiamata in post su json-server</h2>
     <div>
         <div>
-            <label>Nome: </label>
+            <label>Nome:&nbsp;</label>
             <input [(ngModel)]="person.name" />
-            <label> Età: </label>
+            <label>&nbsp;Età:&nbsp;</label>
             <input [(ngModel)]="person.age" />
-            <button type="button" class="button15" (click)="addPerson()">Aggiungi -></button>
+            <span>&nbsp;</span>
+            <button type="button" class="button15" (click)="addPerson()"> Aggiungi -></button>
         </div>
     </div>
 
     <h2>Chiamata in post su server (sts progetto pratica.Angular) + http.delete</h2>
-    <form>
-        <div class="form-row align-items-center">
-          <div class="col-auto">
-            <label class="sr-only" for="inlineFormInput">Nome</label>
-            <input type="text" class="form-control mb-2" [(ngModel)]="persona.name" placeholder="Inserisci il nome">
-          </div>
-          <div class="col-auto">
-            <label class="sr-only" for="inlineFormInput">Età</label>
-            <input type="text" class="form-control mb-2" [(ngModel)]="persona.age" placeholder="Inserisci l'età">
-          </div>
-          <div class="col-auto">
-            <label class="sr-only" for="inlineFormInput">Informazioni</label>
-            <input type="text" class="form-control mb-2" [(ngModel)]="persona.info" placeholder="Info">
-          </div>
-          <div class="col-auto">
-            <label class="sr-only" for="inlineFormInput">Username</label>
-            <input type="text" class="form-control mb-2" [(ngModel)]="persona.user" placeholder="Min 5 caratteri">  <!--tolti controlli-->
-          </div>
-          <div class="col-auto">
-            <label class="sr-only" for="inlineFormInput">Password</label>
-            <input type="text" class="form-control mb-2" [(ngModel)]="persona.password" placeholder="Min 6 caratteri">
-          </div>
-          <div class="col-auto">
-            <button class="btn btn-outline-secondary btn-sm" (click)="aggiungiPersona()">Aggiungi</button>
-          </div>
-        </div>
-      </form>
-      <h2 *ngIf="this.loading">LOADING...Assicurarsi di aver avviato i server</h2>
+
+    <form (ngSubmit)="send()" [formGroup]="form">
+        <!--attribuisce a questo form html il form group e si aspetta per ogni campo il [FormControl]= che nelle nuove versioni per i gruppi è formControlName-->
+        <input class="form-control" type="text" [(ngModel)]="persona.name" placeholder="Inserisci il nome" formControlName="name">
+        <input class="form-control" type="text" [(ngModel)]="persona.age" placeholder="Inserisci l'età" formControlName="age">
+        <input class="form-control" type="text" [(ngModel)]="persona.info" placeholder="Inserisci informazioni" formControlName="info">
+        <input class="form-control" type="text" [(ngModel)]="persona.user" (input)="checkUser()" placeholder="Username, min lunghezza=4" formControlName="user">
+        <input class="form-control" type="text" [(ngModel)]="persona.password" (input)="checkPassword()" placeholder="Password, min lunghezza=6" formControlName="password">
+        <input type="submit" class="button15" value="Invia"><!--(click)="aggiungiPersona()"     aggiunto in send che effettua prima il controllo-->
+    </form>
+
+    <h2 *ngIf="this.loading">LOADING...Assicurarsi di aver avviato i server</h2>
     <table class='table'>
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Name</th>
                 <th>Età</th>
                 <th>Informazioni</th>
                 <th>Username</th>
-                <th>Password</th>
             </tr>
         </thead>
         <tbody>
@@ -99,7 +84,6 @@
                 <td>{{persona.age}}</td>
                 <td>{{persona.info}}</td>
                 <td>{{persona.user}}</td>
-                <td>{{persona.password}}</td>
                 <td><button type="button" class="button15" (click)="eliminaPersona(persona)">Elimina</button></td>
             </tr>
         </tbody>
