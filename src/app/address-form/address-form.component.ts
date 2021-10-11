@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-address-form',
   templateUrl: './address-form.component.html',
   styleUrls: ['./address-form.component.css']
 })
-export class AddressFormComponent {
+export class AddressFormComponent implements OnInit{
   addressForm = this.fb.group({
     company: null,
     firstName: [null, Validators.required],
@@ -85,7 +86,11 @@ export class AddressFormComponent {
     {name: 'Wyoming', abbreviation: 'WY'}
   ];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private title: Title, private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.title.setTitle('AddressForm');
+  }
 
   onSubmit(): void {
     alert('Thanks!');

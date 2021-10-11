@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-form',
@@ -9,8 +10,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class FormComponent implements OnInit {
 
   form!: FormGroup;   //non creo un attributo FormControl per ognuno
+  //altro esempio..form control per pulsanti
+  fontStyleControl = new FormControl();
+  fontStyle?: string;
 
-  constructor(public fb: FormBuilder) {    //crea un'istanza in modo automatico di FormBuilder nel momento in cui viene richiamato il componente. fb quindi sarà istanziato ed avrà la possibilità di chiamare le sue funzioni
+  constructor(private title: Title, public fb: FormBuilder) {    //crea un'istanza in modo automatico di FormBuilder nel momento in cui viene richiamato il componente. fb quindi sarà istanziato ed avrà la possibilità di chiamare le sue funzioni
  
     this.form = fb.group({
       //tutta la lista dei controlli ossia dei campi che vuole questo gruppo
@@ -24,6 +28,7 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.title.setTitle('Form');
   }
 
   send(): void {

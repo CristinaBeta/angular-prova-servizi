@@ -11,13 +11,10 @@
         <a class="nav-link" routerLink="">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/prova">Varie</a>
+        <a class="nav-link" routerLink="/prova">Data binding</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/gestisciPersone">RouterLink+http.get</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/login">Login</a>
+        <a class="nav-link" routerLink="/gestisciPersone">Http.get</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/modal">Modal</a>
@@ -32,7 +29,7 @@
         <a class="nav-link" routerLink="/form">Form</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/sidebar">http.post&delete</a>
+        <a class="nav-link" routerLink="/sidebar">Http.post&delete</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -46,7 +43,16 @@
         </ul>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <a class="nav-link" routerLink="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/loginAut">LoginAut</a>
+      </li>
+      <li class="nav-item" *ngIf="storageService.getVarSessione('token') !== null">
+        <a class="nav-link" routerLink="/dopoLogin">Post Login</a>
+      </li>
+      <li class="nav-item" *ngIf="storageService.getVarSessione('token') === null">
+        <a class="nav-link disabled" routerLink="/dopoLogin" aria-disabled="true">Post Login</a>
       </li>
       <li class="nav-item" *ngIf="storageService !== undefined">
         <a class="nav-link"

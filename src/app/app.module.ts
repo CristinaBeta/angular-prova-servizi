@@ -44,7 +44,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FileSaverComponent } from './file-saver/file-saver.component';
 import { EserciziComponent } from './esercizi/esercizi.component';
 import { CorniceComponent } from './cornice/cornice.component';
+import { LoginAutenticazioneComponent } from './login-autenticazione/login-autenticazione.component';
 //import { FileSaverModule } from 'ngx-filesaver';
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -76,7 +80,8 @@ import { CorniceComponent } from './cornice/cornice.component';
     SidebarComponent,
     FileSaverComponent,
     EserciziComponent,
-    CorniceComponent   
+    CorniceComponent,
+    LoginAutenticazioneComponent   
   ],
   imports: [
     BrowserModule,
@@ -99,6 +104,9 @@ import { CorniceComponent } from './cornice/cornice.component';
       MatSelectModule,
       MatRadioModule,
       MatCardModule,
+      MatSnackBarModule,
+      MatButtonToggleModule,
+      MatToolbarModule,
       ReactiveFormsModule,
       NgbModule,
       TranslateModule.forRoot({
@@ -111,7 +119,9 @@ import { CorniceComponent } from './cornice/cornice.component';
     NgxTypeaheadModule/*,
     FileSaverModule  */    
   ],
-  providers: [],
+  exports: [
+    MatSnackBarModule],
+  providers: [{ provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 3000 } }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

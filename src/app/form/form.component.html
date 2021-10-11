@@ -16,7 +16,16 @@
 <!--ngSubmit chiama la funzione send-->
 <!--(input)="checkUser()"  ogni volta che ci scrivo dentro chiamerà il metodo checkUser che controllerà se la lunghezza è corretta-->
 <!-- la visualizzazione di questo component è legata a profile-editor -->
-
 <hr>
-    <h2>prove angular material</h2>
+<section>
+    <h4>Pulsante all'interno di un ReactiveForm con angular material</h4>
+    <mat-button-toggle-group [formControl]="fontStyleControl" aria-label="Font Style">
+      <mat-button-toggle value="bold">Bold</mat-button-toggle>
+      <mat-button-toggle value="italic">Italic</mat-button-toggle>
+      <mat-button-toggle value="underline">Underline</mat-button-toggle>
+    </mat-button-toggle-group>
+    <p>Il valore selezionato è {{fontStyleControl.value}}</p> <small>(Vedere dropdown per associare selezione a cambiamento)</small>
+  </section>
+<hr>
+    <h2>Form con angular material</h2>
     <a routerLink="/addressForm">Address Form</a>

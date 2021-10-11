@@ -11,7 +11,7 @@ export class AuthService {      //servizio per Route guard (canActivate)
   public isAuthenticated(): boolean {
     //const token= localStorage.getItem('token');
     const token= sessionStorage.getItem('token');
-    // Check whether the token is expired and return true or false
+    // Controlla se il token è scaduto e restituisce true o false
     return token != null/*&& !this.jwtHelper.isTokenExpired(token)*/;
   }
 }

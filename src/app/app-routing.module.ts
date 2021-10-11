@@ -18,6 +18,7 @@ import { ProfileEditorComponent } from './profile-editor/profile-editor.componen
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { EserciziComponent } from './esercizi/esercizi.component';
 import { TypeaheadSearchComponent } from './typeahead-search/typeahead-search.component';
+import { LoginAutenticazioneComponent } from './login-autenticazione/login-autenticazione.component';
 
 const routes: Routes = [
 
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:'dettaglio/:valoreDaPassare' , component: NuoviRouterComponent},
   {path:'dettaglioInterno/:id' , component: GestisciPersoneComponent},
   {path:'login' , component: LoginComponent},
+  {path:'loginAut' , component: LoginAutenticazioneComponent},
   {path:'dopoLogin', component: DopoLoginComponent, canActivate: [AuthGuardService]},
   {path:'addressForm', component: AddressFormComponent},
   {path:'modal' , component: ModalBootstrapComponent},
@@ -37,7 +39,7 @@ const routes: Routes = [
   {path:'upload' , component: UploadComponent},
   {path:'traduzione' , component: TraduzioneComponent},
   {path:'dropdown' , component: DropDownComponent},
-  {path:'form' , component: ProfileEditorComponent},
+  {path:'form' , component: ProfileEditorComponent, data: { title: 'Form' }},
   {path:'sidebar' , component: SidebarComponent},
   {path:'esercizi' , component: EserciziComponent},
   {path:'typeahead' , component: TypeaheadSearchComponent}

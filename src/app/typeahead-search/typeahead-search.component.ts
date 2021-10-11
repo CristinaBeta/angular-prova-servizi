@@ -83,4 +83,6 @@ export class TypeaheadSearchComponent implements OnInit {
     this.search4 = item;
   }
 
+  //esempio con matAutocomplete
+  //https://stackblitz.com/angular/yoborgpykbm?file=src%2Fapp%2Fautocomplete-plain-input-example.ts
 }
