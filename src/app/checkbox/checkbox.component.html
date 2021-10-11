@@ -1,0 +1,40 @@
+<h2>Component Checkbox</h2>
+
+<section class="example-section">
+    <mat-checkbox class="example-margin">Check me!</mat-checkbox>
+    <mat-checkbox class="example-margin" [disabled]="true">Disabled</mat-checkbox>
+  </section>
+  
+  <section class="example-section">
+    <span class="example-list-section">
+      <mat-checkbox class="example-margin"
+                    [checked]="tuttiCompletati"
+                    [color]="task.color"
+                    [indeterminate]="alcuniCompletati()"
+                    (change)="setTutti($event.checked)">
+        {{task.name}}
+      </mat-checkbox>
+    </span>
+    <span class="example-list-section">
+      <ul>
+        <li *ngFor="let subtask of task.subtasks">
+          <mat-checkbox [(ngModel)]="subtask.completed"
+                        [color]="subtask.color"
+                        (ngModelChange)="updateTuttiCompletati()">
+            {{subtask.name}}
+          </mat-checkbox>
+        </li>
+      </ul>
+    </span>
+  </section>
+
+  <div>
+    <p>Un Checkbox di angular material può essere selezionato, deselezionato, indeterminato o disabilitato. Tutti gli attributi di accessibilità aggiuntivi sono gestiti dal componente, quindi non è necessario fornirli.</p>
+  </div>
+
+  <form (ngSubmit)="aggiungiSubTask()"> 
+    <input id="daFare" placeholder="Da fare"type="text" [formControl]="daFare"> 
+    <input type="submit" class="button15" value="Aggiungi">  
+</form>
+<br>
+<p>Aggiunto come esempio di form control, ma non collegato ad un db per salvare i dati, quindi al caricamento del component avrò di nuovo solo i task iniziali</p>

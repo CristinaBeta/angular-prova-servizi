@@ -1,6 +1,8 @@
 <div class="container">
     <h2>Component dopo-login </h2>
 
+    <h3>Benvenuto {{nome}} !</h3>
+
     <p>E' possibile arrivare qui solo in una sessione in cui siano stati inseriti correttamente username e password.</p>
     <p>In app-routing.module sul percorso da "filtrare" aggiungere canActivate: [AuthGuardService]
         <br> &nbsp; AuthGuardService è il nome del mio servizio che, col suo metodo canActivate(), controlla se è

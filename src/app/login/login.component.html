@@ -7,34 +7,18 @@
 	<form action="#" method="post" id="contact_form">
 		<div class="name">
 			<label for="name"></label>
-			<input type="text" class="form-control" placeholder="User Name" [(ngModel)]="usernameC" name="name"
+			<input matInput type="text" class="form-control" placeholder="User Name" [formControl]="usernameC" name="name"
 				id="name_input" required>
+				<!--<mat-error *ngIf="usernameC.invalid">{{errore()}}</mat-error>-->
 		</div>
-		<div class="email">
-			<label for="email"></label>
-			<input type="text" class="form-control" placeholder="Password" [(ngModel)]="passwordC" name="email"
-				id="email_input" required>
-		</div>
-		<div class="telephone">
-			<label for="name"></label>
-			<input type="text" class="form-control" placeholder="Lorem ipsum" name="telephone" id="telephone_input">
-		</div>
-		<div class="subject">
-			<label for="subject"></label>
-			<select placeholder="Subject line" name="subject" id="subject_input">
-				<option disabled hidden selected>Lorem ipsum</option>
-				<option>Lorem ipsum</option>
-				<option>Lorem ipsum</option>
-				<option>Lorem ipsum</option>
-			</select>
-		</div>
-		<div class="message">
-			<label for="message"></label>
-			<textarea name="message" placeholder="Lorem ipsum" id="message_input" cols="30" rows="5"></textarea>
+		<div class="password">
+			<label for="password"></label>
+			<input type="password" class="form-control" placeholder="Password" [(ngModel)]="passwordC" name="email"
+				id="password_input" required>
 		</div>
 		<div class="submit">
 			<button type="submit" (click)="login()" routerLink="/dopoLogin" id="form_button">Login</button>
-			<button type="submit" id="reg_button">Register</button>
+			<button type="submit" routerLink="/sidebar" id="reg_button">Register</button>
 		</div>
 	</form>
 </div>

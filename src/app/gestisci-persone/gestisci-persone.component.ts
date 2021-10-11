@@ -35,6 +35,7 @@ export class GestisciPersoneComponent implements OnInit {
 
   dettaglioInterno(id:number){
     this.route.navigate(['dettaglioInterno', id]);
+    //if listaDaSts() è già stato lanciato => listaDaSts()
   }
 
   listaDaSts(){

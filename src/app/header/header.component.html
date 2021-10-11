@@ -8,28 +8,47 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="">Home</a>
+        <a class="nav-link" routerLink=""><mat-icon aria-hidden="false" aria-label="Home">home</mat-icon> Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/prova">Data binding</a>
+        <a class="nav-link" routerLink="/prova"><mat-icon aria-hidden="false" aria-label="">autorenew</mat-icon> Data binding</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/gestisciPersone">Http.get</a>
+        <a class="nav-link" routerLink="/gestisciPersone"><mat-icon aria-hidden="false" aria-label="">compare_arrows</mat-icon> Http.get</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/modal">Modal</a>
+        <a class="nav-link" routerLink="/modal"><mat-icon aria-hidden="false" aria-label="">mark_chat_unread</mat-icon> Modal</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/upload">Upload</a>
+        <a class="nav-link" routerLink="/upload"><mat-icon aria-hidden="false" aria-label="">file_upload</mat-icon> Upload</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/traduzione">Traduzione</a>
+        <a class="nav-link" routerLink="/traduzione"><mat-icon aria-hidden="false" aria-label="">g_translate</mat-icon> Traduzione</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/form">Form</a>
+        <a class="nav-link" routerLink="/form"><mat-icon aria-hidden="false" aria-label="">view_list</mat-icon> Form</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/sidebar">Http.post&delete</a>
+        <a class="nav-link" routerLink="/sidebar"><mat-icon aria-hidden="false" aria-label="">compare_arrows</mat-icon> Http.post&delete</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/checkbox"><mat-icon aria-hidden="false" aria-label="">checklist</mat-icon> Checkbox</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login"><mat-icon aria-hidden="false" aria-label="Login">account_circle</mat-icon> Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/loginAut"><mat-icon aria-hidden="false" aria-label="">login</mat-icon> LoginAut</a>
+      </li>
+      <li class="nav-item" *ngIf="storageService.getVarSessione('token') !== null">
+        <a class="nav-link" routerLink="/dopoLogin"><mat-icon aria-hidden="false" aria-label="">face</mat-icon> Post Login</a>
+      </li>
+      <li class="nav-item" *ngIf="storageService.getVarSessione('token') === null">
+        <a class="nav-link disabled" routerLink="/dopoLogin" aria-disabled="true"><mat-icon aria-hidden="false" aria-label="">face</mat-icon> Post Login</a>
+      </li>
+      <li class="nav-item" *ngIf="storageService !== undefined">
+        <a class="nav-link"
+          href="https://medium.com/@nixonaugustine5/localstorage-and-sessionstorage-in-angular-app-65cda19283a0#:~:text=Both%20localStorage%20and%20sessionStorage%20are,the%20security%20threat%20cookies%20present.">{{storageService.getVarSessione('pulsante')}}</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -41,22 +60,6 @@
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" routerLink="/esercizi">Esercizi</a></li>
         </ul>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/loginAut">LoginAut</a>
-      </li>
-      <li class="nav-item" *ngIf="storageService.getVarSessione('token') !== null">
-        <a class="nav-link" routerLink="/dopoLogin">Post Login</a>
-      </li>
-      <li class="nav-item" *ngIf="storageService.getVarSessione('token') === null">
-        <a class="nav-link disabled" routerLink="/dopoLogin" aria-disabled="true">Post Login</a>
-      </li>
-      <li class="nav-item" *ngIf="storageService !== undefined">
-        <a class="nav-link"
-          href="https://medium.com/@nixonaugustine5/localstorage-and-sessionstorage-in-angular-app-65cda19283a0#:~:text=Both%20localStorage%20and%20sessionStorage%20are,the%20security%20threat%20cookies%20present.">{{storageService.getVarSessione('pulsante')}}</a>
       </li>
     </ul>
   </div>

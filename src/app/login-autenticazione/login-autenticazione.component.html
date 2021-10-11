@@ -13,3 +13,12 @@
             [disabled]="!loginForm.form.valid">Login</button>
     </form>
 </div>
+<div>
+<p>Altro tipo di login con servizio di autenticazione che setta una variabile locale che dura un'ora composta da
+    username, password e data.
+    <br>
+    Non è stato aggiunto il routeLink a postLogin perchè dovrei modificare il metodo canActivate in auth-guard per recuperare
+    l’accesso da AutenticazioneService ed eseguire un controllo sulla data di scadenza impostata per l’attivazione o meno della rotta sulla quale è abilitata la guardia.
+    <br>(Ho aggiunto il metodo commentato)
+</p>
+</div>

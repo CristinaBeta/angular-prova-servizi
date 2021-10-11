@@ -49,6 +49,10 @@ import { LoginAutenticazioneComponent } from './login-autenticazione/login-auten
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { CheckboxComponent } from './checkbox/checkbox.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -81,7 +85,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     FileSaverComponent,
     EserciziComponent,
     CorniceComponent,
-    LoginAutenticazioneComponent   
+    LoginAutenticazioneComponent,
+    CheckboxComponent   
   ],
   imports: [
     BrowserModule,
@@ -106,7 +111,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
       MatCardModule,
       MatSnackBarModule,
       MatButtonToggleModule,
+      MatCheckboxModule,
       MatToolbarModule,
+      MatIconModule,
+      MatFormFieldModule,
       ReactiveFormsModule,
       NgbModule,
       TranslateModule.forRoot({

@@ -7,13 +7,18 @@ import { Luce } from '../interfacce/Luce';
   styleUrls: ['./dopo-login.component.css']
 })
 export class DopoLoginComponent implements OnInit {
-
+  
   luci: Luce[] = [         
     { nome: "cucina", stato: true },
     { nome: "soggiorno", stato: false }
   ];
+  nome:string = "";
 
-  constructor() { }
+  constructor() { 
+    const token = sessionStorage.getItem('token');
+    if(token != null)
+    this.nome = token;
+  }
 
   ngOnInit(): void {
   }

@@ -19,6 +19,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { EserciziComponent } from './esercizi/esercizi.component';
 import { TypeaheadSearchComponent } from './typeahead-search/typeahead-search.component';
 import { LoginAutenticazioneComponent } from './login-autenticazione/login-autenticazione.component';
+import { CheckboxComponent } from './checkbox/checkbox.component';
 
 const routes: Routes = [
 
@@ -42,7 +43,8 @@ const routes: Routes = [
   {path:'form' , component: ProfileEditorComponent, data: { title: 'Form' }},
   {path:'sidebar' , component: SidebarComponent},
   {path:'esercizi' , component: EserciziComponent},
-  {path:'typeahead' , component: TypeaheadSearchComponent}
+  {path:'typeahead' , component: TypeaheadSearchComponent},
+  {path:'checkbox' , component: CheckboxComponent}
 ];
 
 @NgModule({
