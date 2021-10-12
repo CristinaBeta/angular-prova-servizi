@@ -16,7 +16,7 @@ export class DopoLoginComponent implements OnInit {
   nome:string = "";
 
   constructor(private title: Title) { 
-    const token = sessionStorage.getItem('token');
+    let token = sessionStorage.getItem('token');
     if(token != null)
     this.nome = token;
   }

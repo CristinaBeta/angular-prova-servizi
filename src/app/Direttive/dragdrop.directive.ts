@@ -24,7 +24,7 @@ export class DragdropDirective {
     evt.stopPropagation();
     let files = evt.dataTransfer.files;                         //prendiamo dall'evento il parametro dataTransfer ed in particolare tutti i file che stiamo rilasciando
     if(files.length > 0)  {                                     //controlliamo che ci sia qualcosa che stiamo effetitvamente lasciando
-      this.onFileDropped.emit(files)                            //richiamiamo l'eventEmitter ed emettiamo l'arry di file
+      this.onFileDropped.emit(files)                            //richiamiamo l'eventEmitter ed emettiamo l'array di file
     }
   }
 
