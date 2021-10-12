@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Utenti } from '../interfacce/Utenti';
@@ -15,11 +16,12 @@ export class GestisciPersoneComponent implements OnInit {
   closeResult!: string;
   id: number=0;
 
-  constructor(private getService: GetService, private route:Router, private activatedRoute: ActivatedRoute, private modalService: NgbModal) {
+  constructor(private getService: GetService, private route:Router, private activatedRoute: ActivatedRoute, private modalService: NgbModal, private title:Title) {
     
    }
 
   ngOnInit(): void {
+    this.title.setTitle('GetPersone');
     this.getService.ottieniDati()
     .subscribe(result => {
       this.listaPersone=result;

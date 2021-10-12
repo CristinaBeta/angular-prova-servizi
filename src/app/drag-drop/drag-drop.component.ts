@@ -1,16 +1,24 @@
-import { Component, ViewChild, ElementRef } from "@angular/core";
+import { Component, ViewChild, ElementRef, OnInit } from "@angular/core";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-drag-drop",
   templateUrl: "./drag-drop.component.html",
   styleUrls: ["./drag-drop.component.css"],
 })
-export class DragDropComponent {
+export class DragDropComponent implements OnInit{
   /*Usando @ViewChild possiamo facilmente iniettare componenti, direttive o semplici elementi DOM. 
   può prendere in input anche una classe di componente quando vogliamo accedere alla reference di un componente: @ViewChild(MioComponente)
   In questo caso avremo accesso anche a tutti i metodi di quel componente, in maniera type safe.*/
   @ViewChild("fileDropRef", { static: false }) fileDropEl!: ElementRef;       //Il decoratore @ViewChild ci consente di iniettare in un componente riferimenti a elementi utilizzati all'interno del suo template.
   files: any[] = [];
+
+  constructor(private title: Title) { 
+  }
+  
+  ngOnInit(): void {
+    this.title.setTitle('Upload');
+  }
 
   //quando trascino file
   onFileDropped($event: any[]) {

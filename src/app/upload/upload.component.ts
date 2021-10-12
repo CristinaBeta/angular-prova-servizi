@@ -1,5 +1,6 @@
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
@@ -15,7 +16,7 @@ export class UploadComponent implements OnInit {
   progress: number = 0;
   error!: string | null;
 
-  constructor(public route: ActivatedRoute, public http: HttpClient) {
+  constructor(public route: ActivatedRoute, public http: HttpClient, private t:Title) {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.title = params.get('id');
       this.user = params.get('user');
@@ -23,6 +24,7 @@ export class UploadComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.t.setTitle('Upload');
     console.log("start")
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Title } from '@angular/platform-browser';
 import { AutenticazioneService } from '../Services/autenticazione.service';
 
 @Component({
@@ -13,9 +14,10 @@ export class LoginAutenticazioneComponent implements OnInit {
   password?: string;
 
   constructor(
-    private readonly authenticationService: AutenticazioneService, private readonly snackBar: MatSnackBar) { }
+    private readonly authenticationService: AutenticazioneService, private readonly snackBar: MatSnackBar, private title: Title) { }
 
   ngOnInit(): void {
+    this.title.setTitle('Login');
     this.logout();
   }
 

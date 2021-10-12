@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-esercizi',
@@ -8,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class EserciziComponent implements OnInit {    //component che mi serve solo per testare le nuove aggiunte, da ripulire di volta in volta
 
 
-  constructor() { }
+  constructor(private title:Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Esercizi');
   }
   
   

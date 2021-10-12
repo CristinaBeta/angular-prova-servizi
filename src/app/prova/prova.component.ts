@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { StorageService } from '../Services/storage.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class ProvaComponent implements OnInit {
   testo2:string | undefined;
   soprannome!:string;
 
-  constructor(private storageService: StorageService) {
+  constructor(private storageService: StorageService, private title: Title) {
     this.nome = 'Ciao';
     setTimeout(() => {
       this.nome = 'Cristina';
@@ -22,6 +23,7 @@ export class ProvaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.title.setTitle('Data Binding');
   }
 
   getClick(event: any) {

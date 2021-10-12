@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Task } from '../interfacce/Task';
 
 @Component({
@@ -21,12 +22,12 @@ export class CheckboxComponent implements OnInit {
   daFare = new FormControl();
   tuttiCompletati: boolean = false;
 
-  constructor(){
+  constructor(private title:Title){
 
   }
 
   ngOnInit(){
-
+    this.title.setTitle('Checkbox');
   }
   
   updateTuttiCompletati() {

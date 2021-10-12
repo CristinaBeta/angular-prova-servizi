@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Persona } from '../model/persona.model';
 import { Utente } from '../model/utente.model';
 import { PostService } from '../Services/post.service';
@@ -19,7 +20,7 @@ export class SidebarComponent implements OnInit {
       persona = new Persona();
       form!: FormGroup;   //non creo un attributo FormControl per ognuno
 
-  constructor(private http: HttpClient, private postService:PostService, public fb: FormBuilder) {    //crea un'istanza in modo automatico di FormBuilder nel momento in cui viene richiamato il componente. fb quindi sarà istanziato ed avrà la possibilità di chiamare le sue funzioni
+  constructor(private http: HttpClient, private postService:PostService, public fb: FormBuilder, private title:Title) {    //crea un'istanza in modo automatico di FormBuilder nel momento in cui viene richiamato il componente. fb quindi sarà istanziato ed avrà la possibilità di chiamare le sue funzioni
  
     this.form = fb.group({
       //tutta la lista dei controlli ossia dei campi che vuole questo gruppo
@@ -32,6 +33,7 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.title.setTitle('HTTP.POST');
     this.refreshPeople();
     this.refreshPersone();
   }

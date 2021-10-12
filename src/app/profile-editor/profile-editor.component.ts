@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile-editor',
   templateUrl: './profile-editor.component.html',
   styleUrls: ['./profile-editor.component.css']
 })
-export class ProfileEditorComponent {
+export class ProfileEditorComponent implements OnInit {
   profileForm = new FormGroup({
     firstName: new FormControl(''),   //Utilizzare il costruttore di FormControl per impostarne il valore iniziale, che in questo caso è una stringa vuota.
     lastName: new FormControl(''),    //Creando questi controlli nella classe del componente, si ottiene l'accesso immediato per ascoltare, aggiornare e convalidare lo stato dell'input del form.
@@ -20,6 +21,14 @@ export class ProfileEditorComponent {
   });
   /*I singoli controlli del modulo sono ora raccolti all'interno di un gruppo. Un'istanza di FormGroup fornisce il valore del proprio modello come oggetto ridotto dai valori di ogni controllo nel gruppo.
   Un'istanza del From group ha le stesse proprietà (come value e untouched) e metodi (come setValue()) di un'istanza del form control.*/
+
+  constructor(private title:Title){
+
+  }
+
+  ngOnInit(): void {
+    this.title.setTitle('Form');
+  }
 
   onSubmit() {
     //Utilizzare EventEmitter per mantenere il modulo incapsulato e per fornire il valore del modulo all'esterno del componente.

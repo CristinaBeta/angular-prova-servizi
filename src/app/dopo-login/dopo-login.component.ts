@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Luce } from '../interfacce/Luce';
 
 @Component({
@@ -14,13 +15,14 @@ export class DopoLoginComponent implements OnInit {
   ];
   nome:string = "";
 
-  constructor() { 
+  constructor(private title: Title) { 
     const token = sessionStorage.getItem('token');
     if(token != null)
     this.nome = token;
   }
 
   ngOnInit(): void {
+    this.title.setTitle('Benvenuto');
   }
 
 }

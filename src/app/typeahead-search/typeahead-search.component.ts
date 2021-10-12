@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { GetService } from '../Services/get.service';
 
 @Component({
@@ -62,9 +63,10 @@ export class TypeaheadSearchComponent implements OnInit {
 
   public myDataList = []
 
-  constructor(private getService: GetService) { }
+  constructor(private getService: GetService, private title:Title) { }
 
   ngOnInit(): void {
+    this.title.setTitle('TypeaHead');
     this.getService.ottieniDati()
     .subscribe(result => {
       this.myDataList=result;

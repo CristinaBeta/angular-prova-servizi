@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Persona } from '../model/persona.model';
 import { GetService } from '../Services/get.service';
@@ -17,9 +18,10 @@ export class LoginComponent implements OnInit {
   listaPersone: Persona[] = [];
   contatore: number = 0;
 
-  constructor(private storageService: StorageService, private getService: GetService, private route:Router) { }
+  constructor(private storageService: StorageService, private getService: GetService, private route:Router, private title: Title) { }
 
   ngOnInit(): void {
+    this.title.setTitle('Login');
     this.getService.ottieniDatiDaSts()
     .subscribe(result => {
       this.listaPersone=result;

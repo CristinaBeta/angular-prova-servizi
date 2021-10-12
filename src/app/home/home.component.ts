@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Grandezza } from '../interfacce/Grandezza';
 import { ModalService } from '../Services/modal.service';
 import { ServizioChiamata } from '../Services/ServizioChiamata';
@@ -22,13 +23,14 @@ export class HomeComponent implements OnInit {
     this.current = this.dimensione[0];
   }*/
 
-  constructor(private servizioChiamata: ServizioChiamata, private modalService: ModalService) {  
+  constructor(private servizioChiamata: ServizioChiamata, private modalService: ModalService, private title: Title) {  
     setTimeout(() => {
       this.modalService.open();
     }, 10000);
   }
 
   ngOnInit(): void {
+    this.title.setTitle('Homepage');
     this.servizioChiamata.getAll()
     .subscribe(result => {
       this.dimensione=result;

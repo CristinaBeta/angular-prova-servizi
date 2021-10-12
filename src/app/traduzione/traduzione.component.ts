@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({
@@ -8,11 +9,12 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class TraduzioneComponent implements OnInit {
 
-  constructor(private translate: TranslateService){
+  constructor(private translate: TranslateService, private title:Title){
     translate.setDefaultLang('it');
   }
 
   ngOnInit(): void {
+    this.title.setTitle('Traduzione');
   }
 
   useLanguage(language: string): void {
